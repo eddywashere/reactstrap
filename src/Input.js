@@ -8,6 +8,7 @@ import { mapToCssModules, warnOnce, tagPropType } from './utils';
 const propTypes = {
   children: PropTypes.node,
   type: PropTypes.string,
+  value:PropTypes.string,
   size: PropTypes.string,
   bsSize: PropTypes.string,
   valid: PropTypes.bool,
@@ -53,6 +54,7 @@ class Input extends React.Component {
       className,
       cssModule,
       type,
+      value,
       bsSize,
       valid,
       invalid,
