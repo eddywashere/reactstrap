@@ -28,6 +28,13 @@ describe('Collapse', () => {
     expect(wrapper.find('p').text()).toBe('hello');
   });
 
+  it('works with strict mode', () => {
+    const spy = jest.spyOn(console, 'error');
+    wrapper = mount(<React.StrictMode><Collapse/></React.StrictMode>);
+    expect(wrapper.instance()).toBeTruthy();
+    expect(spy).not.toHaveBeenCalled();
+  })
+
   it('should have default isOpen value', () => {
     wrapper = shallow(<Collapse />);
     expect(wrapper.instance().props.isOpen).toEqual(false);
