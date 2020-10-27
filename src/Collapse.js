@@ -55,34 +55,46 @@ class Collapse extends Component {
       height: null
     };
 
+    this.nodeRef = React.createRef();
+
     ['onEntering', 'onEntered', 'onExit', 'onExiting', 'onExited'].forEach((name) => {
       this[name] = this[name].bind(this);
     });
   }
 
-  onEntering(node, isAppearing) {
+  getNode() {
+    const nodeRef = this.props.innerRef || this.nodeRef;
+    return nodeRef.current;
+  }
+
+  onEntering(_, isAppearing) {
+    const node = this.getNode();
     this.setState({ height: getHeight(node) });
     this.props.onEntering(node, isAppearing);
   }
 
-  onEntered(node, isAppearing) {
+  onEntered(_, isAppearing) {
+    const node = this.getNode();
     this.setState({ height: null });
     this.props.onEntered(node, isAppearing);
   }
 
-  onExit(node) {
+  onExit() {
+    const node = this.getNode();
     this.setState({ height: getHeight(node) });
     this.props.onExit(node);
   }
 
-  onExiting(node) {
+  onExiting() {
+    const node = this.getNode();
     // getting this variable triggers a reflow
     const _unused = node.offsetHeight; // eslint-disable-line no-unused-vars
     this.setState({ height: 0 });
     this.props.onExiting(node);
   }
 
-  onExited(node) {
+  onExited() {
+    const node = this.getNode();
     this.setState({ height: null });
     this.props.onExited(node);
   }
@@ -99,6 +111,8 @@ class Collapse extends Component {
       ...otherProps
     } = this.props;
 
+    const nodeRef = innerRef || this.nodeRef;
+
     const { height } = this.state;
 
     const transitionProps = pick(otherProps, TransitionPropTypeKeys);
@@ -107,6 +121,7 @@ class Collapse extends Component {
       <Transition
         {...transitionProps}
         in={isOpen}
+        nodeRef={nodeRef}
         onEntering={this.onEntering}
         onEntered={this.onEntered}
         onExit={this.onExit}
@@ -126,7 +141,7 @@ class Collapse extends Component {
               {...childProps}
               style={{ ...childProps.style, ...style }}
               className={classes}
-              ref={this.props.innerRef}
+              ref={nodeRef}
             >
               {children}
             </Tag>
