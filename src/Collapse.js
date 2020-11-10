@@ -15,11 +15,7 @@ const propTypes = {
   className: PropTypes.node,
   navbar: PropTypes.bool,
   cssModule: PropTypes.object,
-  innerRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.string,
-    PropTypes.object
-  ]),
+  innerRef: PropTypes.shape({ current: PropTypes.object }),
 };
 
 const defaultProps = {
