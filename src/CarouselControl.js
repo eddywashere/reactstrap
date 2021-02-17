@@ -16,7 +16,7 @@ const CarouselControl = (props) => {
   ), cssModule);
 
   const screenReaderClasses = mapToCssModules(classNames(
-    'sr-only'
+    'visually-hidden'
   ), cssModule);
 
 

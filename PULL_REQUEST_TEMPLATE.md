@@ -1,9 +1,10 @@
 <!---
 What types of changes does your code introduce? Put an `x` in all the boxes that apply:
 -->
+
 - [ ] Bug fix <!-- (change which fixes an issue) -->
 - [ ] New feature <!-- (change which adds functionality) -->
-- [ ] Chore <!-- (change which doesn't affect the usage of the package (such as a documentation, build process, or project setup change)) -->
+- [ ] Chore <!-- (change which doesn't affect the usage of the package (such as documentation, build process, or project setup changes)) -->
 - [ ] Breaking change <!-- (fix or feature that would cause existing functionality to change) -->
 - [ ] There is an open issue which this change addresses
 - [ ] I have read the **[CONTRIBUTING](./CONTRIBUTING.md)** document.
@@ -16,8 +17,7 @@ What types of changes does your code introduce? Put an `x` in all the boxes that
 
 <!-- Put any other information you believe would be useful to know when reviewing this PR below -->
 
-
 <!---
-If there is an issue this PR addresses, please make sure it is in the commit message per the Git Commit Guidelines above 
-**AND** put the issue number below, indicating that is closes or fixes the issue.
+If there is an issue this PR addresses, please make sure it is in the commit message per the Git Commit Guidelines above
+**AND** put the issue number below, indicating that it closes or fixes the issue.
 -->

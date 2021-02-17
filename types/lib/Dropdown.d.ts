@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { CSSModule } from './index';
 
-export type Direction = 'up' | 'down' | 'left' | 'right';
+export type Direction = 'up' | 'down' | 'start' | 'end';
 
 export interface DropdownProps extends React.HTMLAttributes<HTMLElement> {
   [key: string]: any;

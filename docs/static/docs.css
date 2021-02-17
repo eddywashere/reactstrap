@@ -22,7 +22,7 @@
   margin-right: 1rem;
 }
 
-.jumbotron-header .btn + .btn {
+.jumbotron-header .btn:last-child {
   margin-right: 0;
 }
 
@@ -42,7 +42,7 @@
     height:100%;
   }
   .docSearch-navigation, .docSearch-content {
-    overflow-y: scroll;
+    overflow-y: auto;
     height:100%;
   }
 }

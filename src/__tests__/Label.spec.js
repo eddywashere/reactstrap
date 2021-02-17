@@ -81,10 +81,10 @@ describe('Label', () => {
     expect(wrapper.hasClass('col-auto')).toBe(true);
   });
 
-  it('should render with "sr-only" class when hidden prop is truthy', () => {
+  it('should render with "visually-hidden" class when hidden prop is truthy', () => {
     const wrapper = shallow(<Label hidden>Yo!</Label>);
 
-    expect(wrapper.hasClass('sr-only')).toBe(true);
+    expect(wrapper.hasClass('visually-hidden')).toBe(true);
   });
 
   it('should render with "col-form-label-${size}" class when size is provided', () => {

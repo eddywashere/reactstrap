@@ -19,7 +19,7 @@ const propTypes = {
 const defaultProps = {
   tag: 'strong',
   wrapTag: 'div',
-  tagClassName: 'mr-auto',
+  tagClassName: 'me-auto',
   closeAriaLabel: 'Close',
   charCode: 215,
 };
@@ -35,7 +35,6 @@ const ToastHeader = (props) => {
     tag: Tag,
     wrapTag: WrapTag,
     closeAriaLabel,
-    charCode,
     close,
     tagClassName,
     icon: iconProp,
@@ -47,11 +46,8 @@ const ToastHeader = (props) => {
   ), cssModule);
 
   if (!close && toggle) {
-    const closeIcon = typeof charCode === 'number' ? String.fromCharCode(charCode) : charCode;
     closeButton = (
-      <button type="button" onClick={toggle} className={mapToCssModules('close', cssModule)} aria-label={closeAriaLabel}>
-        <span aria-hidden="true">{closeIcon}</span>
-      </button>
+      <button type="button" onClick={toggle} className={mapToCssModules('btn-close', cssModule)} aria-label={closeAriaLabel} />
     );
   }
 
@@ -76,7 +72,7 @@ const ToastHeader = (props) => {
   return (
     <WrapTag {...attributes} className={classes}>
       {icon}
-      <Tag className={mapToCssModules(classNames(tagClassName, { "ml-2": icon != null }), cssModule)}>
+      <Tag className={mapToCssModules(classNames(tagClassName, { "ms-2": icon != null }), cssModule)}>
         {children}
       </Tag>
       {close || closeButton}

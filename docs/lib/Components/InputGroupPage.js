@@ -51,12 +51,6 @@ export default class InputGroupPage extends React.Component {
   className: PropTypes.string
 };
 
-InputGroupAddOn.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  addonType: PropTypes.oneOf(['prepend', 'append']).isRequired,
-  className: PropTypes.string
-};
-
 InputGroupButton.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   addonType: PropTypes.oneOf(['prepend', 'append']).isRequired,
@@ -79,7 +73,7 @@ InputGroupButton.propTypes = {
           </PrismCode>
         </pre>
 
-        <SectionTitle>Addon Sizing</SectionTitle>
+        <SectionTitle>Input Group Sizing</SectionTitle>
         <div className="docs-example">
           <div>
             <AddonSizingExample />

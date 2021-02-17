@@ -53,16 +53,12 @@ const Media = (props) => {
   const classes = mapToCssModules(classNames(
     className,
     {
-      'media-body': body,
-      'media-heading': heading,
-      'media-left': left,
-      'media-right': right,
-      'media-top': top,
-      'media-bottom': bottom,
-      'media-middle': middle,
-      'media-object': object,
-      'media-list': list,
-      media: !body && !heading && !left && !right && !top && !bottom && !middle && !object && !list,
+      'flex-grow-1': body,
+      'flex-shrink-0': left || right,
+      'align-self-start': top,
+      'align-self-end': bottom,
+      'align-self-center': middle,
+      'd-flex': !body && !heading && !left && !right && !top && !bottom && !middle && !object && !list,
     }
   ), cssModule);
 

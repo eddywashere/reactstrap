@@ -9,7 +9,8 @@ import {
   Dropdown,
   DropdownToggle,
   DropdownItem,
-  DropdownMenu } from 'reactstrap';
+  DropdownMenu,
+  UncontrolledDropdown } from 'reactstrap';
 import SectionTitle from '../UI/SectionTitle';
 import DropdownExample from '../examples/Dropdown';
 import DropdownSizingExample from '../examples/DropdownSizing';
@@ -59,7 +60,7 @@ export default class DropdownPage extends React.Component {
 {`Dropdown.propTypes = {
   a11y: PropTypes.bool, // defaults to true. Set to false to enable more bootstrap like tabbing behavior
   disabled: PropTypes.bool,
-  direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
+  direction: PropTypes.oneOf(['up', 'down', 'start', 'end']),
   group: PropTypes.bool,
   isOpen: PropTypes.bool,
   // For Dropdown usage inside a Nav
@@ -89,12 +90,13 @@ DropdownToggle.propTypes = {
 DropdownMenu.propTypes = {
   tag: PropTypes.string,
   children: PropTypes.node.isRequired,
-  right: PropTypes.bool,
+  dark: PropTypes.bool,
+  end: PropTypes.bool,
   flip: PropTypes.bool, // default: true,
   className: PropTypes.string,
   cssModule: PropTypes.object,
-  // Custom modifiers that are passed to DropdownMenu.js, see https://popper.js.org/popper-documentation.html#modifiers
-  modifiers: PropTypes.object,
+  // Custom modifiers that are passed to Popper.js, see https://popper.js.org/docs/v2/modifiers/
+  modifiers: PropTypes.array,
   persist: PropTypes.bool, // presist the popper, even when closed. See #779 for reasoning
   // passed to popper, see https://popper.js.org/popper-documentation.html#Popper.Defaults.positionFixed
   positionFixed: PropTypes.bool
@@ -123,7 +125,7 @@ DropdownItem.propTypes = {
               <DropdownToggle caret>
                 Dropdown's menu is right-aligned
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu end>
                 <DropdownItem header>Header</DropdownItem>
                 <DropdownItem disabled>Action</DropdownItem>
                 <DropdownItem>Another Action</DropdownItem>
@@ -139,12 +141,42 @@ DropdownItem.propTypes = {
   <DropdownToggle caret>
     Dropdown's menu is right-aligned
   </DropdownToggle>
-  <DropdownMenu right>
+  <DropdownMenu end>
     <DropdownItem header>Header</DropdownItem>
     <DropdownItem disabled>Action</DropdownItem>
     <DropdownItem>Another Action</DropdownItem>
     <DropdownItem divider/>
     <DropdownItem>Another Really Really Long Action (Really!)</DropdownItem>
+  </DropdownMenu>
+</Dropdown>`}
+          </PrismCode>
+        </pre>
+        <SectionTitle>Dark dropdowns</SectionTitle>
+        <p>To opt into darker <code>DropdownMenu</code> to match a dark <code>Navbar</code>, add a <code>dark</code> prop to <code>DropdownMenu</code>.</p>
+        <div className="docs-example">
+          <div>
+            <UncontrolledDropdown>
+              <DropdownToggle caret>
+                Dropdown's menu is dark
+              </DropdownToggle>
+              <DropdownMenu dark>
+                <DropdownItem header>Header</DropdownItem>
+                <DropdownItem active>Active Action</DropdownItem>
+                <DropdownItem>Another Action</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </div>
+        </div>
+        <pre>
+          <PrismCode className="language-jsx">
+{`<Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+  <DropdownToggle caret>
+    Dropdown's menu is dark
+  </DropdownToggle>
+  <DropdownMenu dark>
+    <DropdownItem header>Header</DropdownItem>
+    <DropdownItem active>Active Action</DropdownItem>
+    <DropdownItem>Another Action</DropdownItem>
   </DropdownMenu>
 </Dropdown>`}
           </PrismCode>
@@ -254,7 +286,7 @@ DropdownItem.propTypes = {
               </Dropdown>
             </Col>
             <Col>
-              <Dropdown direction="left" isOpen={this.state.ddDropleft} toggle={() => { this.setState({ ddDropleft: !this.state.ddDropleft }); }}>
+              <Dropdown direction="start" isOpen={this.state.ddDropleft} toggle={() => { this.setState({ ddDropleft: !this.state.ddDropleft }); }}>
                 <DropdownToggle caret>
                   Dropleft
                 </DropdownToggle>
@@ -265,7 +297,7 @@ DropdownItem.propTypes = {
               </Dropdown>
             </Col>
             <Col>
-              <Dropdown direction="right" isOpen={this.state.ddDropright} toggle={() => { this.setState({ ddDropright: !this.state.ddDropright }); }}>
+              <Dropdown direction="end" isOpen={this.state.ddDropright} toggle={() => { this.setState({ ddDropright: !this.state.ddDropright }); }}>
                 <DropdownToggle caret>
                   Dropright
                 </DropdownToggle>
@@ -289,7 +321,7 @@ DropdownItem.propTypes = {
   </DropdownMenu>
 </Dropdown>
 
-<Dropdown direction="left" isOpen={this.state.btnDropleft} toggle={() => { this.setState({ btnDropleft: !this.state.btnDropleft }); }}>
+<Dropdown direction="start" isOpen={this.state.btnDropleft} toggle={() => { this.setState({ btnDropleft: !this.state.btnDropleft }); }}>
   <DropdownToggle caret>
     Dropleft
   </DropdownToggle>
@@ -299,7 +331,7 @@ DropdownItem.propTypes = {
   </DropdownMenu>
 </Dropdown>
 
-<Dropdown direction="right" isOpen={this.state.btnDropright} toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
+<Dropdown direction="end" isOpen={this.state.btnDropright} toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
   <DropdownToggle caret>
     Dropright
   </DropdownToggle>

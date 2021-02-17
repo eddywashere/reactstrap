@@ -1,3 +1,20 @@
+# [8.7.0](https://github.com/reactstrap/reactstrap/compare/8.6.0...8.7.0) (2020-10-31)
+
+
+### Bug Fixes
+
+* **DropdownMenu:** Prevent manual styles from overriding popper styles ([#1984](https://github.com/reactstrap/reactstrap/issues/1984)) ([dc2401b](https://github.com/reactstrap/reactstrap/commit/dc2401b388777b011bc6c75426a86a78013a2b8c))
+* **Progress:** Fix parent element props being spread to children ([#1970](https://github.com/reactstrap/reactstrap/issues/1970)) ([c6a790c](https://github.com/reactstrap/reactstrap/commit/c6a790c7f4bdbfac0540d53896834638edf9c793))
+* **types:** Add missing innerRef typings ([#1994](https://github.com/reactstrap/reactstrap/issues/1994)) ([fe24f69](https://github.com/reactstrap/reactstrap/commit/fe24f69be2dc9953896c49be73254f7787ad34ff)), closes [#1993](https://github.com/reactstrap/reactstrap/issues/1993)
+
+
+### Features
+
+* Add typescript definitions ([#1976](https://github.com/reactstrap/reactstrap/issues/1976)) ([2a47626](https://github.com/reactstrap/reactstrap/commit/2a47626dc088f1983239f606c91f6294c7e756d7))
+* **DropdownItem:** Add support for .dropdown-item-text ([#1971](https://github.com/reactstrap/reactstrap/issues/1971)) ([c41b172](https://github.com/reactstrap/reactstrap/commit/c41b172180b92ba3f53444ca8f409c1cd10f895d))
+
+
+
 # [8.6.0](https://github.com/reactstrap/reactstrap/compare/8.5.1...8.6.0) (2020-09-18)
 
 

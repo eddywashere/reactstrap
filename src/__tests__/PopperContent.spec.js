@@ -93,38 +93,63 @@ describe('PopperContent', () => {
         target="target"
         isOpen
         container="inline"
-        modifiers={{
-          preventOverflow: { boundariesElement: 'viewport' },
-          offset: { offset: 2 },
-        }}
+        modifiers={[
+      {
+        name: 'offset',
+        options: {
+          offset: [2, 2],
+        },
+      },
+      {
+        name: 'preventOverflow',
+        options: {
+          boundary: 'viewport',
+        },
+      },
+    ]}
       >Yo!</PopperContent>
     );
 
-    expect(wrapper.find(Popper).props().modifiers).toMatchObject({
-      // remaining default modifiers
-      flip: { enabled: true, behavior: 'flip' },
-
-      // additional modifiers
-      preventOverflow: { boundariesElement: 'viewport' },
-
-      // override modifiers
-      offset: { offset: 2 },
-    });
+    expect(wrapper.find(Popper).props().modifiers).toContainEqual(
+      {
+        name: 'offset',
+        options: {
+          offset: [2, 2],
+        },
+      }
+    );
+    expect(wrapper.find(Popper).props().modifiers).toContainEqual(
+      {
+        name: 'flip',
+        enabled: true,
+        options: {
+          fallbackPlacements: undefined,
+        },
+      }
+    );
+    expect(wrapper.find(Popper).props().modifiers).toContainEqual(
+      {
+        name: 'preventOverflow',
+        options: {
+          boundary: 'viewport',
+        },
+      },
+    );
 
     wrapper.unmount();
   });
 
-  it('should have x-placement of auto by default', () => {
+  it('should have data-popper-placement of auto by default', () => {
     const wrapper = mount(<PopperContent target="target" isOpen container="inline">Yo!</PopperContent>);
 
-    expect(wrapper.find('div[x-placement="auto"]').exists()).toBe(true);
+    expect(wrapper.find('div[data-popper-placement="auto"]').exists()).toBe(true);
   });
 
-  it('should override x-placement', () => {
+  it('should override data-popper-placement', () => {
     const wrapper = mount(<PopperContent placement="top" target="target" isOpen container="inline">Yo!</PopperContent>);
 
-    expect(wrapper.find('div[x-placement="auto"]').exists()).toBe(false);
-    expect(wrapper.find('div[x-placement="top"]').exists()).toBe(true);
+    expect(wrapper.find('div[data-popper-placement="auto"]').exists()).toBe(false);
+    expect(wrapper.find('div[data-popper-placement="top"]').exists()).toBe(true);
   });
 
   it('should allow for a placement prefix', () => {
@@ -137,7 +162,7 @@ describe('PopperContent', () => {
     const wrapper = mount(<PopperContent placementPrefix="dropdown" placement="top" target="target" isOpen container="inline">Yo!</PopperContent>);
 
     expect(wrapper.find('.dropdown-auto').exists()).toBe(true);
-    expect(wrapper.find('div[x-placement="top"]').exists()).toBe(true);
+    expect(wrapper.find('div[data-popper-placement="top"]').exists()).toBe(true);
   });
 
   it('should render custom tag for the popper', () => {

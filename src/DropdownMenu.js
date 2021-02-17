@@ -3,43 +3,47 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Popper } from 'react-popper';
 import { DropdownContext } from './DropdownContext';
-import { mapToCssModules, tagPropType } from './utils';
+import { deprecated, mapToCssModules, tagPropType } from './utils';
 
 const propTypes = {
   tag: tagPropType,
   children: PropTypes.node.isRequired,
-  right: PropTypes.bool,
+  dark: PropTypes.bool,
+  end: PropTypes.bool,
   flip: PropTypes.bool,
-  modifiers: PropTypes.object,
+  modifiers: PropTypes.array,
   className: PropTypes.string,
   cssModule: PropTypes.object,
   persist: PropTypes.bool,
   positionFixed: PropTypes.bool,
+  right: deprecated(PropTypes.bool, 'Please use "end" instead.'),
 };
 
 const defaultProps = {
   tag: 'div',
   flip: true,
+  modifiers: [],
 };
-
-const noFlipModifier = { flip: { enabled: false } };
 
 const directionPositionMap = {
   up: 'top',
   left: 'left',
   right: 'right',
+  start: 'left',
+  end: 'right',
   down: 'bottom',
 };
 
-class DropdownMenu extends React.Component { 
+class DropdownMenu extends React.Component {
 
   render() {
-    const { className, cssModule, right, tag, flip, modifiers, persist, positionFixed, ...attrs } = this.props;
+    const { className, cssModule, dark, end, right, tag, flip, modifiers, persist, positionFixed, ...attrs } = this.props;
     const classes = mapToCssModules(classNames(
       className,
       'dropdown-menu',
       {
-        'dropdown-menu-right': right,
+        'dropdown-menu-dark': dark,
+        'dropdown-menu-end': end || right,
         show: this.context.isOpen,
       }
     ), cssModule);
@@ -49,32 +53,37 @@ class DropdownMenu extends React.Component {
     if (persist || (this.context.isOpen && !this.context.inNavbar)) {
 
       const position1 = directionPositionMap[this.context.direction] || 'bottom';
-      const position2 = right ? 'end' : 'start';
+      const position2 = (end || right) ? 'end' : 'start';
       const poperPlacement = `${position1}-${position2}`;
-      const poperModifiers = !flip ? {
+      const poperModifiers = [
         ...modifiers,
-        ...noFlipModifier,
-      } : modifiers;
-      const popperPositionFixed = !!positionFixed;
+        {
+          name: 'flip',
+          enabled: !!flip,
+        },
+       ];
 
       return (
         <Popper
           placement={poperPlacement}
           modifiers={poperModifiers}
-          positionFixed={popperPositionFixed}
+          strategy={positionFixed ? 'fixed' : undefined}
         >
-          {({ ref, style, placement }) => (
-            <Tag
-              tabIndex="-1"
-              role="menu"
-              ref={ref}
-              style={style}
-              {...attrs}
-              aria-hidden={!this.context.isOpen}
-              className={classes}
-              x-placement={placement}
-            />
-          )}
+          {({ ref, style, placement }) => {
+            let combinedStyle = { ...this.props.style, ...style };
+            return (
+              <Tag
+                tabIndex="-1"
+                role="menu"
+                ref={ref}
+                {...attrs}
+                style={combinedStyle}
+                aria-hidden={!this.context.isOpen}
+                className={classes}
+                data-popper-placement={placement}
+              />
+            );
+          }}
         </Popper>
       );
     }
@@ -86,7 +95,7 @@ class DropdownMenu extends React.Component {
         {...attrs}
         aria-hidden={!this.context.isOpen}
         className={classes}
-        x-placement={attrs.placement}
+        data-popper-placement={attrs.placement}
       />
     );
   }

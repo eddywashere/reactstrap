@@ -57,6 +57,8 @@ export default class CarouselPage extends React.Component {
   mouseLeave: PropTypes.func,
   // controls whether the slide animation on the Carousel works or not
   slide: PropTypes.bool,
+  // make the controls, indicators and captions dark on the Carousel
+  dark: PropTypes.bool, 
   cssModule: PropTypes.object,
   // controls whether the touch gestures on the Carousel works or not (default: true)
   enableTouch: PropTypes.bool,

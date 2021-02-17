@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, Dr
 export default function Example () {
   return (
     <Navbar color="light" light expand="md">
-      <Nav className="ml-auto" navbar>
+      <Nav className="ms-auto" navbar>
         <NavItem>
           <NavLink href="/components/">Inactive Link</NavLink>
         </NavItem>

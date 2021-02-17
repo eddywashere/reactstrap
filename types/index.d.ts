@@ -2,6 +2,12 @@ export interface CSSModule {
   [className: string]: string;
 }
 
+export { default as Accordion } from './lib/Accordion';
+export { AccordionProps } from './lib/Accordion';
+export { default as AccordionHeader } from './lib/AccordionHeader';
+export { AccordionHeaderProps } from './lib/AccordionHeader';
+export { default as AccordionItem } from './lib/AccordionItem';
+export { AccordionItemProps } from './lib/AccordionItem';
 export { default as Alert } from './lib/Alert';
 export { AlertProps } from './lib/Alert';
 export { default as Badge } from './lib/Badge';
@@ -62,8 +68,6 @@ export { default as Collapse } from './lib/Collapse';
 export { CollapseProps } from './lib/Collapse';
 export { default as Container } from './lib/Container';
 export { ContainerProps } from './lib/Container';
-export { default as CustomInput } from './lib/CustomInput';
-export { CustomInputProps } from './lib/CustomInput';
 export { default as Dropdown } from './lib/Dropdown';
 export { DropdownProps } from './lib/Dropdown';
 export { default as DropdownItem } from './lib/DropdownItem';
@@ -86,10 +90,6 @@ export { default as Input } from './lib/Input';
 export { InputProps } from './lib/Input';
 export { default as InputGroup } from './lib/InputGroup';
 export { InputGroupProps } from './lib/InputGroup';
-export { default as InputGroupAddon } from './lib/InputGroupAddon';
-export { InputGroupAddonProps } from './lib/InputGroupAddon';
-export { default as InputGroupButtonDropdown } from './lib/InputGroupButtonDropdown';
-export { InputGroupButtonDropdownProps } from './lib/InputGroupButtonDropdown';
 export { default as InputGroupText } from './lib/InputGroupText';
 export { InputGroupTextProps } from './lib/InputGroupText';
 export { default as Jumbotron } from './lib/Jumbotron';

@@ -63,10 +63,9 @@ class Input extends React.Component {
       ...attributes
     } = this.props;
 
-    const checkInput = ['radio', 'checkbox'].indexOf(type) > -1;
+    const checkInput = ['switch', 'radio', 'checkbox'].indexOf(type) > -1;
     const isNotaNumber = new RegExp('\\D', 'g');
 
-    const fileInput = type === 'file';
     const textareaInput = type === 'textarea';
     const selectInput = type === 'select';
     const rangeInput = type === 'range';
@@ -77,10 +76,10 @@ class Input extends React.Component {
     if (plaintext) {
       formControlClass = `${formControlClass}-plaintext`;
       Tag = tag || 'input';
-    } else if (fileInput) {
-      formControlClass = `${formControlClass}-file`;
     } else if (rangeInput) {
-      formControlClass = `${formControlClass}-range`;
+      formControlClass = 'form-range';
+    } else if (selectInput) {
+      formControlClass = "form-select";
     } else if (checkInput) {
       if (addon) {
         formControlClass = null;
@@ -102,14 +101,18 @@ class Input extends React.Component {
         className,
         invalid && 'is-invalid',
         valid && 'is-valid',
-        bsSize ? `form-control-${bsSize}` : false,
+        bsSize
+          ? selectInput
+            ? `form-select-${bsSize}`
+            : `form-control-${bsSize}`
+          : false,
         formControlClass
       ),
       cssModule
     );
 
     if (Tag === 'input' || (tag && typeof tag === 'function')) {
-      attributes.type = type;
+      attributes.type = type === 'switch' ? 'checkbox' : type;
     }
 
     if (

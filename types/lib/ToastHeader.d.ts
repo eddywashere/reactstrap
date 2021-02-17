@@ -9,7 +9,6 @@ export interface ToastHeaderProps extends React.HTMLAttributes<HTMLElement> {
   toggle?: React.MouseEventHandler<any>;
   icon?: string | React.ReactNode;
   close?: React.ReactNode;
-  charCode?: string | number;
   closeAriaLabel?: string;
 }
 

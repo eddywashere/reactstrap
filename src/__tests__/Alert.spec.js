@@ -16,7 +16,7 @@ describe('Alert', () => {
   it('should pass close className down', () => {
     function noop() { }
     const alert = mount(<Alert toggle={noop} closeClassName="test-class-name">Yo!</Alert>);
-    expect(alert.find('.close').hostNodes().prop('className')).toContain('test-class-name');
+    expect(alert.find('.btn-close').hostNodes().prop('className')).toContain('test-class-name');
   });
 
   it('should pass other props down', () => {

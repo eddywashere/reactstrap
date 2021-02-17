@@ -44,7 +44,8 @@ export default class LayoutsPage extends React.Component {
   sm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   md: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   lg: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  xl: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  xl: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  xxl: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }`}
           </PrismCode>
         </pre>
@@ -73,6 +74,7 @@ Col.propTypes = {
   md: columnProps,
   lg: columnProps,
   xl: columnProps,
+  xxl: columnProps,
   // override the predefined width (the ones above) with your own custom widths.
   // see https://github.com/reactstrap/reactstrap/issues/297#issuecomment-273556116
   widths: PropTypes.array,

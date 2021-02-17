@@ -11,7 +11,6 @@ const propTypes = {
   cssModule: PropTypes.object,
   children: PropTypes.node,
   closeAriaLabel: PropTypes.string,
-  charCode: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   close: PropTypes.object,
 };
 
@@ -19,7 +18,6 @@ const defaultProps = {
   tag: 'h5',
   wrapTag: 'div',
   closeAriaLabel: 'Close',
-  charCode: 215,
 };
 
 const ModalHeader = (props) => {
@@ -32,7 +30,6 @@ const ModalHeader = (props) => {
     tag: Tag,
     wrapTag: WrapTag,
     closeAriaLabel,
-    charCode,
     close,
     ...attributes } = props;
 
@@ -42,11 +39,8 @@ const ModalHeader = (props) => {
   ), cssModule);
 
   if (!close && toggle) {
-    const closeIcon = typeof charCode === 'number' ? String.fromCharCode(charCode) : charCode;
     closeButton = (
-      <button type="button" onClick={toggle} className={mapToCssModules('close', cssModule)} aria-label={closeAriaLabel}>
-        <span aria-hidden="true">{closeIcon}</span>
-      </button>
+      <button type="button" onClick={toggle} className={mapToCssModules('btn-close', cssModule)} aria-label={closeAriaLabel} />
     );
   }
 

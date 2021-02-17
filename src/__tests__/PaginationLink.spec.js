@@ -32,7 +32,7 @@ describe('PaginationLink', () => {
 
     expect(wrapper.prop('aria-label')).toBe('Previous');
     expect(wrapper.find({ 'aria-hidden': 'true' }).text()).toBe('\u2039');
-    expect(wrapper.find('.sr-only').text()).toBe('Previous');
+    expect(wrapper.find('.visually-hidden').text()).toBe('Previous');
   });
 
   it('should render next', () => {
@@ -40,7 +40,7 @@ describe('PaginationLink', () => {
 
     expect(wrapper.prop('aria-label')).toBe('Next');
     expect(wrapper.find({ 'aria-hidden': 'true' }).text()).toBe('\u203A');
-    expect(wrapper.find('.sr-only').text()).toBe('Next');
+    expect(wrapper.find('.visually-hidden').text()).toBe('Next');
   });
 
   it('should render default previous caret with children as an empty array', () => {
@@ -48,7 +48,7 @@ describe('PaginationLink', () => {
 
     expect(wrapper.prop('aria-label')).toBe('Previous');
     expect(wrapper.find({ 'aria-hidden': 'true' }).text()).toBe('\u2039');
-    expect(wrapper.find('.sr-only').text()).toBe('Previous');
+    expect(wrapper.find('.visually-hidden').text()).toBe('Previous');
   });
 
   it('should render default next caret with children as an empty array', () => {
@@ -56,14 +56,14 @@ describe('PaginationLink', () => {
 
     expect(wrapper.prop('aria-label')).toBe('Next');
     expect(wrapper.find({ 'aria-hidden': 'true' }).text()).toBe('\u203A');
-    expect(wrapper.find('.sr-only').text()).toBe('Next');
+    expect(wrapper.find('.visually-hidden').text()).toBe('Next');
   });
 
   it('should render custom aria label', () => {
     const wrapper = shallow(<PaginationLink next aria-label="Yo" />);
 
     expect(wrapper.prop('aria-label')).toBe('Yo');
-    expect(wrapper.find('.sr-only').text()).toBe('Yo');
+    expect(wrapper.find('.visually-hidden').text()).toBe('Yo');
   });
 
   it('should render custom caret specified as a string', () => {
@@ -83,7 +83,7 @@ describe('PaginationLink', () => {
 
     expect(wrapper.prop('aria-label')).toBe('First');
     expect(wrapper.find({ 'aria-hidden': 'true' }).text()).toBe('\u00ab');
-    expect(wrapper.find('.sr-only').text()).toBe('First');
+    expect(wrapper.find('.visually-hidden').text()).toBe('First');
   });
 
   it('should render last', () => {
@@ -91,7 +91,7 @@ describe('PaginationLink', () => {
 
     expect(wrapper.prop('aria-label')).toBe('Last');
     expect(wrapper.find({ 'aria-hidden': 'true' }).text()).toBe('\u00bb');
-    expect(wrapper.find('.sr-only').text()).toBe('Last');
+    expect(wrapper.find('.visually-hidden').text()).toBe('Last');
   });
 
   it('should render default first caret with children as an empty array', () => {
@@ -99,7 +99,7 @@ describe('PaginationLink', () => {
 
     expect(wrapper.prop('aria-label')).toBe('First');
     expect(wrapper.find({ 'aria-hidden': 'true' }).text()).toBe('\u00ab');
-    expect(wrapper.find('.sr-only').text()).toBe('First');
+    expect(wrapper.find('.visually-hidden').text()).toBe('First');
   });
 
   it('should render default last caret with children as an empty array', () => {
@@ -107,7 +107,7 @@ describe('PaginationLink', () => {
 
     expect(wrapper.prop('aria-label')).toBe('Last');
     expect(wrapper.find({ 'aria-hidden': 'true' }).text()).toBe('\u00bb');
-    expect(wrapper.find('.sr-only').text()).toBe('Last');
+    expect(wrapper.find('.visually-hidden').text()).toBe('Last');
   });
 
 });

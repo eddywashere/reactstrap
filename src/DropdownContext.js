@@ -5,7 +5,7 @@ import React from 'react';
  * {
  *  toggle: PropTypes.func.isRequired,
  *  isOpen: PropTypes.bool.isRequired,
- *  direction: PropTypes.oneOf(['up', 'down', 'left', 'right']).isRequired,
+ *  direction: PropTypes.oneOf(['up', 'down', 'start', 'end']).isRequired,
  *  inNavbar: PropTypes.bool.isRequired,
  *  disabled: PropTypes.bool
  * }

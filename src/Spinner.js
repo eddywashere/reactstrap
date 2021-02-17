@@ -44,7 +44,7 @@ const Spinner = props => {
   return (
     <Tag role="status" {...attributes} className={classes}>
       {children &&
-        <span className={mapToCssModules('sr-only', cssModule)}>
+        <span className={mapToCssModules('visually-hidden', cssModule)}>
           {children}
         </span>
       }

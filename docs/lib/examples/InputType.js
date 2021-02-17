@@ -131,15 +131,18 @@ const Example = (props) => {
         <Input type="range" name="range" id="exampleRange" />
       </FormGroup>
       <FormGroup check>
-        <Label check>
-          <Input type="radio" /> Option one is this and that—be sure to
-          include why it's great
+        <Input id="InputType-radio" type="radio" />
+        <Label check for="InputType-radio">
+          Option one is this and that—be sure to include why it's great
         </Label>
       </FormGroup>
       <FormGroup check>
-        <Label check>
-          <Input type="checkbox" /> Check me out
-        </Label>
+        <Input id="InputType-checkbox" type="checkbox" />
+        <Label for="InputType-checkbox" check>Check me out</Label>
+      </FormGroup>
+      <FormGroup switch>
+        <Input id="InputType-switch" type="switch" />
+        <Label for="InputType-switch" check>Check me out</Label>
       </FormGroup>
     </Form>
   );

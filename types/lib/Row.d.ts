@@ -15,6 +15,7 @@ export interface RowProps
   md?: number | string;
   lg?: number | string;
   xl?: number | string;
+  xxl?: number | string;
 }
 
 declare class Row extends React.Component<RowProps> {}

@@ -186,7 +186,7 @@ There are a few core concepts to understand in order to make the most out of thi
     - `color` - applies color classes, ex: `<Button color="danger"/>`
     - `size` - for controlling size classes. ex: `<Button size="sm"/>`
     - `tag` - customize component output by passing in an element name or Component
-    - boolean based props (attributes) when possible for alternative style classes or `sr-only` content
+    - boolean based props (attributes) when possible for alternative style classes or `visually-hidden` content
 
 
 ## [Documentation](https://reactstrap.github.io)

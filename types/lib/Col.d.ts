@@ -18,6 +18,7 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   md?: ColumnProps;
   lg?: ColumnProps;
   xl?: ColumnProps;
+  xxl?: ColumnProps;
 
   // custom widths
   widths?: string[];

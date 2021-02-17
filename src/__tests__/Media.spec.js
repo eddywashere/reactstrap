@@ -54,55 +54,43 @@ describe('Media', () => {
   it('should render body', () => {
     const wrapper = shallow(<Media body />);
 
-    expect(wrapper.hasClass('media-body')).toBe(true);
-  });
-
-  it('should render heading', () => {
-    const wrapper = shallow(<Media heading />);
-
-    expect(wrapper.hasClass('media-heading')).toBe(true);
+    expect(wrapper.hasClass('flex-grow-1')).toBe(true);
   });
 
   it('should render left', () => {
     const wrapper = shallow(<Media left />);
 
-    expect(wrapper.hasClass('media-left')).toBe(true);
+    expect(wrapper.hasClass('flex-shrink-0')).toBe(true);
   });
 
   it('should render right', () => {
     const wrapper = shallow(<Media right />);
 
-    expect(wrapper.hasClass('media-right')).toBe(true);
+    expect(wrapper.hasClass('flex-shrink-0')).toBe(true);
   });
 
   it('should render top', () => {
     const wrapper = shallow(<Media top />);
 
-    expect(wrapper.hasClass('media-top')).toBe(true);
+    expect(wrapper.hasClass('align-self-start')).toBe(true);
   });
 
   it('should render bottom', () => {
     const wrapper = shallow(<Media bottom />);
 
-    expect(wrapper.hasClass('media-bottom')).toBe(true);
+    expect(wrapper.hasClass('align-self-end')).toBe(true);
   });
 
   it('should render middle', () => {
     const wrapper = shallow(<Media middle />);
 
-    expect(wrapper.hasClass('media-middle')).toBe(true);
-  });
-
-  it('should render object', () => {
-    const wrapper = shallow(<Media object />);
-
-    expect(wrapper.hasClass('media-object')).toBe(true);
+    expect(wrapper.hasClass('align-self-center')).toBe(true);
   });
 
   it('should render media', () => {
     const wrapper = shallow(<Media />);
 
-    expect(wrapper.hasClass('media')).toBe(true);
+    expect(wrapper.hasClass('d-flex')).toBe(true);
   });
 
   it('should render list', () => {
@@ -114,7 +102,6 @@ describe('Media', () => {
       </Media>
     );
 
-    expect(wrapper.hasClass('media-list')).toBe(true);
     expect(wrapper.find({ tag: 'li' }).length).toBe(3);
   });
 

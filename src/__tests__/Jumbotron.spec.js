@@ -16,17 +16,28 @@ describe('Jumbotron', () => {
     expect(wrapper.find('h1').hostNodes().text()).toBe('Hello from h1');
   });
 
-  it('should have class jumbotron', () => {
+  it('should have default classes', () => {
     const wrapper = shallow(<Jumbotron>Hello</Jumbotron>);
 
-    expect(wrapper.hasClass('jumbotron')).toBe(true);
+    expect(wrapper.hasClass('bg-light')).toBe(true);
+    expect(wrapper.hasClass('mb-4')).toBe(true);
+    expect(wrapper.hasClass('py-3')).toBe(true);
+    expect(wrapper.hasClass('py-sm-5')).toBe(true);
+    expect(wrapper.hasClass('rounded')).toBe(true);
+    expect(wrapper.hasClass('px-3')).toBe(true);
+    expect(wrapper.hasClass('px-sm-4')).toBe(true);
   });
 
-  it('should render fluid jumbotron', () => {
+  it('should render fluid with square corners and no x padding', () => {
     const wrapper = shallow(<Jumbotron fluid>Hello</Jumbotron>);
 
-    expect(wrapper.hasClass('jumbotron')).toBe(true);
-    expect(wrapper.hasClass('jumbotron-fluid')).toBe(true);
+    expect(wrapper.hasClass('bg-light')).toBe(true);
+    expect(wrapper.hasClass('mb-4')).toBe(true);
+    expect(wrapper.hasClass('py-3')).toBe(true);
+    expect(wrapper.hasClass('py-sm-5')).toBe(true);
+    expect(wrapper.hasClass('rounded')).toBe(false);
+    expect(wrapper.hasClass('px-3')).toBe(false);
+    expect(wrapper.hasClass('px-sm-4')).toBe(false);
   });
 
   it('should render custom class', () => {

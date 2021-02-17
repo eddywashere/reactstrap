@@ -24,6 +24,10 @@ const propTypes = {
   isOpen: PropTypes.bool,
   autoFocus: PropTypes.bool,
   centered: PropTypes.bool,
+  fullscreen: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  ]),
   scrollable: PropTypes.bool,
   size: PropTypes.string,
   toggle: PropTypes.func,
@@ -352,6 +356,8 @@ class Modal extends React.Component {
           [`modal-${this.props.size}`]: this.props.size,
           [`${dialogBaseClass}-centered`]: this.props.centered,
           [`${dialogBaseClass}-scrollable`]: this.props.scrollable,
+          'modal-fullscreen': this.props.fullscreen === true,
+          [`modal-fullscreen-${this.props.fullscreen}-down`]: (typeof this.props.fullscreen) === 'string',
         }), this.props.cssModule)}
         role="document"
         ref={(c) => {

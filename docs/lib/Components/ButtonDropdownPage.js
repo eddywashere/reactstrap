@@ -48,7 +48,7 @@ export default class ButtonDropdownPage extends React.Component {
           <PrismCode className="language-jsx">
 {`ButtonDropdown.propTypes = {
   disabled: PropTypes.bool,
-  direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
+  direction: PropTypes.oneOf(['up', 'down', 'start', 'end']),
   group: PropTypes.bool,
   isOpen: PropTypes.bool,
   tag: PropTypes.string,
@@ -206,7 +206,7 @@ export default function Example () => {
               </DropdownMenu>
             </ButtonDropdown>
             {' '}
-            <ButtonDropdown direction="left" isOpen={this.state.btnDropleft} toggle={() => { this.setState({ btnDropleft: !this.state.btnDropleft }); }}>
+            <ButtonDropdown direction="start" isOpen={this.state.btnDropleft} toggle={() => { this.setState({ btnDropleft: !this.state.btnDropleft }); }}>
               <DropdownToggle caret>
                 Dropleft
               </DropdownToggle>
@@ -216,7 +216,7 @@ export default function Example () => {
               </DropdownMenu>
             </ButtonDropdown>
             {' '}
-            <ButtonDropdown direction="right" isOpen={this.state.btnDropright} toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
+            <ButtonDropdown direction="end" isOpen={this.state.btnDropright} toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
               <DropdownToggle caret>
                 Dropright
               </DropdownToggle>
@@ -239,7 +239,7 @@ export default function Example () => {
   </DropdownMenu>
 </ButtonDropdown>
 
-<ButtonDropdown direction="left" isOpen={this.state.btnDropleft} toggle={() => { this.setState({ btnDropleft: !this.state.btnDropleft }); }}>
+<ButtonDropdown direction="start" isOpen={this.state.btnDropleft} toggle={() => { this.setState({ btnDropleft: !this.state.btnDropleft }); }}>
   <DropdownToggle caret>
     Dropleft
   </DropdownToggle>
@@ -249,7 +249,7 @@ export default function Example () => {
   </DropdownMenu>
 </ButtonDropdown>
 
-<ButtonDropdown direction="right" isOpen={this.state.btnDropright} toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
+<ButtonDropdown direction="end" isOpen={this.state.btnDropright} toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
   <DropdownToggle caret>
     Dropright
   </DropdownToggle>

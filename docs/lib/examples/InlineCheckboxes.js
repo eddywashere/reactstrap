@@ -5,13 +5,15 @@ const Example = (props) => {
   return (
     <Form>
       <FormGroup check inline>
-        <Label check>
-          <Input type="checkbox" /> Some input
+        <Input id="InlineCheckboxes-checkbox-1" type="checkbox" />
+        <Label for="InlineCheckboxes-checkbox-1" check>
+          Some input
         </Label>
       </FormGroup>
       <FormGroup check inline>
-        <Label check>
-           <Input type="checkbox" /> Some other input
+        <Input id="InlineCheckboxes-checkbox-2" type="checkbox" />
+        <Label for="InlineCheckboxes-checkbox-2" check>
+          Some other input
         </Label>
       </FormGroup>
     </Form>
@@ -19,4 +21,3 @@ const Example = (props) => {
 }
 
 export default Example;
- 

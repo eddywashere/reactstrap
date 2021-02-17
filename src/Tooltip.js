@@ -25,6 +25,7 @@ const Tooltip = (props) => {
   return (
     <TooltipPopoverWrapper
       {...props}
+      arrowClassName="tooltip-arrow"
       popperClassName={popperClasses}
       innerClassName={classes}
     />

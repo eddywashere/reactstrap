@@ -1,48 +1,38 @@
 import React from 'react';
-import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+import { InputGroup, InputGroupText, Input } from 'reactstrap';
 
 const Example = (props) => {
   return (
     <div>
       <InputGroup>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>@</InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>@</InputGroupText>
         <Input placeholder="username" />
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>
-            <Input addon type="checkbox" aria-label="Checkbox for following text input" />
-          </InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>
+          <Input addon type="checkbox" aria-label="Checkbox for following text input" />
+        </InputGroupText>
         <Input placeholder="Check it out" />
       </InputGroup>
       <br />
       <InputGroup>
         <Input placeholder="username" />
-        <InputGroupAddon addonType="append">
-          <InputGroupText>@example.com</InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>@example.com</InputGroupText>
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>$</InputGroupText>
-          <InputGroupText>$</InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>$</InputGroupText>
+        <InputGroupText>$</InputGroupText>
         <Input placeholder="Dolla dolla billz yo!" />
-        <InputGroupAddon addonType="append">
-          <InputGroupText>$</InputGroupText>
-          <InputGroupText>$</InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>$</InputGroupText>
+        <InputGroupText>$</InputGroupText>
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend">$</InputGroupAddon>
+        <InputGroupText>$</InputGroupText>
         <Input placeholder="Amount" min={0} max={100} type="number" step="1" />
-        <InputGroupAddon addonType="append">.00</InputGroupAddon>
+        <InputGroupText>.00</InputGroupText>
       </InputGroup>
     </div>
   );

@@ -94,7 +94,7 @@ describe('Button', () => {
   it('should render block level buttons', () => {
     const block = shallow(<Button block>Block Level Button</Button>);
 
-    expect(block.hasClass('btn-block')).toBe(true);
+    expect(block.hasClass('d-block w-100')).toBe(true);
   });
 
   it('should render close icon utility with default props', () => {
@@ -104,7 +104,7 @@ describe('Button', () => {
     const wrapper = shallow(<Button close />);
     const actualInnerHTML = wrapper.children().html();
 
-    expect(wrapper.find('.close').length).toBe(1);
+    expect(wrapper.find('.btn-close').length).toBe(1);
     expect(wrapper.find('.btn').length).toBe(0);
     expect(wrapper.find('.btn-secondary').length).toBe(0);
     expect(wrapper.find('button').prop('aria-label')).toMatch(/close/i);

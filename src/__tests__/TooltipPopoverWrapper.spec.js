@@ -272,19 +272,41 @@ describe('Tooltip', () => {
       <TooltipPopoverWrapper
         isOpen
         target="target"
-        modifiers={{
-          preventOverflow: { boundariesElement: 'viewport' },
-          offset: { offset: 2 },
-        }}
+        modifiers={[
+          {
+            name: 'offset',
+            options: {
+              offset: [2, 2],
+            },
+          },
+          {
+            name: 'preventOverflow',
+            options: {
+              boundary: 'viewport',
+            },
+          },
+        ]}
       >
         Tooltip Content
       </TooltipPopoverWrapper>
     );
 
-    expect(wrapper.find(PopperContent).props().modifiers).toEqual({
-      preventOverflow: { boundariesElement: 'viewport' },
-      offset: { offset: 2 },
-    });
+    expect(wrapper.find(PopperContent).props().modifiers).toContainEqual(
+      {
+        name: 'offset',
+        options: {
+          offset: [2, 2],
+        },
+      }
+    );
+    expect(wrapper.find(PopperContent).props().modifiers).toContainEqual(
+      {
+        name: 'preventOverflow',
+        options: {
+          boundary: 'viewport',
+        },
+      },
+    );
 
     wrapper.unmount();
   });

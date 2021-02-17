@@ -64,7 +64,7 @@ class DropdownToggle extends React.Component {
       typeof props.children !== 'undefined' ? (
         props.children
       ) : (
-        <span className="sr-only">{ariaLabel}</span>
+        <span className="visually-hidden">{ariaLabel}</span>
       );
 
     let Tag;

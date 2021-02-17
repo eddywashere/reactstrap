@@ -17,6 +17,7 @@ import PopoversPage from './Components/PopoversPage';
 import ProgressPage from './Components/ProgressPage';
 import TooltipsPage from './Components/TooltipsPage';
 import BadgePage from './Components/BadgePage';
+import AccordionPage from './Components/AccordionPage';
 import MediaPage from './Components/MediaPage';
 import ModalsPage from './Components/ModalsPage';
 import CardPage from './Components/CardPage';
@@ -41,7 +42,8 @@ const routes = (
     <Route path="/" component={UI.Layout}>
       <IndexRoute component={Home} />
       <Route path="/components/" component={Components}>
-        <IndexRedirect to="alerts/" />
+        <IndexRedirect to="accordion/" />
+        <Route path="accordion/" component={AccordionPage} />
         <Route path="breadcrumbs/" component={BreadcrumbsPage} />
         <Route path="buttons/" component={ButtonsPage} />
         <Route path="button-group/" component={ButtonGroupPage} />

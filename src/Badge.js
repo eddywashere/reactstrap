@@ -33,8 +33,8 @@ const Badge = (props) => {
   const classes = mapToCssModules(classNames(
     className,
     'badge',
-    'badge-' + color,
-    pill ? 'badge-pill' : false
+    'bg-' + color,
+    pill ? 'rounded-pill' : false
   ), cssModule);
 
   if (attributes.href && Tag === 'span') {

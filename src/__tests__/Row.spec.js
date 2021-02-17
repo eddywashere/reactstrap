@@ -22,10 +22,10 @@ describe('Row', () => {
     expect(wrapper.hasClass('row')).toBe(true);
   });
 
-  it('show render noGutters classes', () => {
+  it('show render noGutters class as gx-0', () => {
     const wrapper = shallow(<Row noGutters />);
 
-    expect(wrapper.hasClass('no-gutters')).toBe(true);
+    expect(wrapper.hasClass('gx-0')).toBe(true);
     expect(wrapper.hasClass('row')).toBe(true);
   });
 

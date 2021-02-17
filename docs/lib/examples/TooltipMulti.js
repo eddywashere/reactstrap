@@ -11,7 +11,7 @@ const TooltipItem = props => {
 
   return (
     <span>
-      <Button className="mr-1" color="secondary" id={"Tooltip-" + id}>
+      <Button className="me-1" color="secondary" id={"Tooltip-" + id}>
         {item.text}
       </Button>
       <Tooltip

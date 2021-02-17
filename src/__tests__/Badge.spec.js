@@ -30,18 +30,18 @@ describe('Badge', () => {
   it('should render badges with secondary color', () => {
     const wrapper = shallow(<Badge>Default Badge</Badge>);
 
-    expect(wrapper.hasClass('badge-secondary')).toBe(true);
+    expect(wrapper.hasClass('bg-secondary')).toBe(true);
   });
 
   it('should render Badges with other colors', () => {
     const wrapper = shallow(<Badge color="danger">Danger Badge</Badge>);
 
-    expect(wrapper.hasClass('badge-danger')).toBe(true);
+    expect(wrapper.hasClass('bg-danger')).toBe(true);
   });
 
   it('should render Badges as pills', () => {
     const wrapper = shallow(<Badge pill>Pill Badge</Badge>);
 
-    expect(wrapper.hasClass('badge-pill')).toBe(true);
+    expect(wrapper.hasClass('rounded-pill')).toBe(true);
   });
 });

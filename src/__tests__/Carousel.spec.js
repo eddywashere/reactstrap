@@ -259,6 +259,38 @@ describe('Carousel', () => {
       expect(wrapper.find(CarouselControl).length).toEqual(2);
       expect(wrapper.find(CarouselIndicators).length).toEqual(1);
     });
+
+    it('should not have the class "carousel-dark" by default', () => {
+      const slides = items.map((item, idx) => {
+        return (
+          <CarouselItem key={idx} />
+        );
+      });
+
+      const wrapper = mount(
+        <Carousel activeIndex={0} next={() => { }} previous={() => { }}>
+          {slides}
+        </Carousel>
+      );
+
+      expect(wrapper.find('.carousel-dark').length).toBe(0);
+    });
+
+    it('should have the class "carousel-dark" when dark prop is true', () => {
+      const slides = items.map((item, idx) => {
+        return (
+          <CarouselItem key={idx} />
+        );
+      });
+
+      const wrapper = mount(
+        <Carousel dark activeIndex={0} next={() => { }} previous={() => { }}>
+          {slides}
+        </Carousel>
+      );
+
+      expect(wrapper.find('.carousel-dark').length).toBe(1);
+    });
   });
 
   describe('carouseling', () => {

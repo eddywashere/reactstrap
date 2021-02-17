@@ -3,6 +3,10 @@ import Content from '../UI/Content';
 
 const items = [
   {
+    name: 'Accordion',
+    to: '/components/accordion/'
+  },
+  {
     name: 'Alerts',
     to: '/components/alerts/'
   },

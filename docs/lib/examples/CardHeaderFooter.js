@@ -8,7 +8,7 @@ const Example = (props) => {
       <Card>
         <CardHeader>Header</CardHeader>
         <CardBody>
-          <CardTitle>Special Title Treatment</CardTitle>
+          <CardTitle tag="h5">Special Title Treatment</CardTitle>
           <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
           <Button>Go somewhere</Button>
         </CardBody>
@@ -18,7 +18,7 @@ const Example = (props) => {
       <Card>
         <CardHeader tag="h3">Featured</CardHeader>
         <CardBody>
-          <CardTitle>Special Title Treatment</CardTitle>
+          <CardTitle tag="h5">Special Title Treatment</CardTitle>
           <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
           <Button>Go somewhere</Button>
         </CardBody>

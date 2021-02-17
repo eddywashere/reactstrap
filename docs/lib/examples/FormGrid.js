@@ -60,20 +60,20 @@ const Example = (props) => {
         <legend className="col-form-label col-sm-2">Radio Buttons</legend>
         <Col sm={10}>
           <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio2" />{' '}
+            <Input type="radio" name="radio2" id="radio2-option1" />
+            <Label check for="radio2-option1">
               Option one is this and that—be sure to include why it's great
             </Label>
           </FormGroup>
           <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio2" />{' '}
+            <Input type="radio" name="radio2" id="radio2-option2" />
+            <Label check for="radio2-option2">
               Option two can be something else and selecting it will deselect option one
             </Label>
           </FormGroup>
           <FormGroup check disabled>
-            <Label check>
-              <Input type="radio" name="radio2" disabled />{' '}
+            <Input type="radio" name="radio2" id="radio2-option3" disabled />
+            <Label check for="radio2-option3">
               Option three is disabled
             </Label>
           </FormGroup>
@@ -83,8 +83,8 @@ const Example = (props) => {
         <Label for="checkbox2" sm={2}>Checkbox</Label>
         <Col sm={{ size: 10 }}>
           <FormGroup check>
-            <Label check>
-              <Input type="checkbox" id="checkbox2" />{' '}
+            <Input type="checkbox" id="checkbox2" />
+            <Label check for="checkbox2" >
               Check me out
             </Label>
           </FormGroup>

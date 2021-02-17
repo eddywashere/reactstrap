@@ -25,8 +25,10 @@ const Jumbotron = (props) => {
 
   const classes = mapToCssModules(classNames(
     className,
-    'jumbotron',
-    fluid ? 'jumbotron-fluid' : false
+    'bg-light mb-4 py-3 py-sm-5',
+    {
+      'rounded px-3 px-sm-4': !fluid
+    },
   ), cssModule);
 
   return (

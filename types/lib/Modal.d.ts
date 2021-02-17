@@ -25,6 +25,7 @@ export interface ModalProps extends React.HTMLAttributes<HTMLElement> {
   backdropTransition?: FadeProps;
   modalTransition?: FadeProps;
   centered?: boolean;
+  fullscreen?: boolean | 'sm' | 'md' | 'lg' | 'xl';
   external?: React.ReactNode;
   labelledBy?: string;
   unmountOnClose?: boolean;

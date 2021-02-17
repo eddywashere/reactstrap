@@ -166,11 +166,12 @@ class Carousel extends React.Component {
   }
 
   render() {
-    const { cssModule, slide, className } = this.props;
+    const { cssModule, slide, className, dark } = this.props;
     const outerClasses = mapToCssModules(classNames(
       className,
       'carousel',
-      slide && 'slide'
+      slide && 'slide',
+      dark && 'carousel-dark'
     ), cssModule);
 
     const innerClasses = mapToCssModules(classNames(
@@ -260,6 +261,8 @@ Carousel.propTypes = {
   mouseLeave: PropTypes.func,
   // controls whether the slide animation on the Carousel works or not
   slide: PropTypes.bool,
+  // make the controls, indicators and captions dark on the Carousel
+  dark: PropTypes.bool,
   cssModule: PropTypes.object,
   className: PropTypes.string,
   enableTouch: PropTypes.bool,

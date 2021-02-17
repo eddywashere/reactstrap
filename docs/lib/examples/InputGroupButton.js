@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import {
   InputGroup,
-  InputGroupAddon,
-  InputGroupButtonDropdown,
+  Dropdown,
   Input,
   Button,
   DropdownToggle,
@@ -21,40 +20,36 @@ const Example = (props) => {
   return (
     <div>
       <InputGroup>
-        <InputGroupAddon addonType="prepend"><Button>I'm a button</Button></InputGroupAddon>
+        <Button>I'm a button</Button>
         <Input />
       </InputGroup>
       <br />
-      <InputGroup>
+      <InputGroup type="dropdown" isOpen={dropdownOpen} toggle={toggleDropDown}>
         <Input />
-        <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
-          <DropdownToggle caret>
-            Button Dropdown
-          </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem header>Header</DropdownItem>
-            <DropdownItem disabled>Action</DropdownItem>
-            <DropdownItem>Another Action</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>Another Action</DropdownItem>
-          </DropdownMenu>
-        </InputGroupButtonDropdown>
+        <DropdownToggle caret>
+          Button Dropdown
+        </DropdownToggle>
+        <DropdownMenu>
+          <DropdownItem header>Header</DropdownItem>
+          <DropdownItem disabled>Action</DropdownItem>
+          <DropdownItem>Another Action</DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem>Another Action</DropdownItem>
+        </DropdownMenu>
       </InputGroup>
       <br />
-      <InputGroup>
-        <InputGroupButtonDropdown addonType="prepend" isOpen={splitButtonOpen} toggle={toggleSplit}>
-          <Button outline>Split Button</Button>
-          <DropdownToggle split outline />
-          <DropdownMenu>
-            <DropdownItem header>Header</DropdownItem>
-            <DropdownItem disabled>Action</DropdownItem>
-            <DropdownItem>Another Action</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>Another Action</DropdownItem>
-          </DropdownMenu>
-        </InputGroupButtonDropdown>
+      <InputGroup type="dropdown" isOpen={splitButtonOpen} toggle={toggleSplit}>
+        <Button outline>Split Button</Button>
+        <DropdownToggle split outline />
+        <DropdownMenu>
+          <DropdownItem header>Header</DropdownItem>
+          <DropdownItem disabled>Action</DropdownItem>
+          <DropdownItem>Another Action</DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem>Another Action</DropdownItem>
+        </DropdownMenu>
         <Input placeholder="and..." />
-        <InputGroupAddon addonType="append"><Button color="secondary">I'm a button</Button></InputGroupAddon>
+        <Button color="secondary">I'm a button</Button>
       </InputGroup>
     </div>
   );

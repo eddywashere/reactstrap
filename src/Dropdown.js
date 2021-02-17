@@ -11,12 +11,11 @@ import { mapToCssModules, omit, keyCodes, tagPropType } from './utils';
 const propTypes = {
   a11y: PropTypes.bool,
   disabled: PropTypes.bool,
-  direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
+  direction: PropTypes.oneOf(['up', 'down', 'start', 'end', 'left', 'right']),
   group: PropTypes.bool,
   isOpen: PropTypes.bool,
   nav: PropTypes.bool,
   active: PropTypes.bool,
-  addonType: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['prepend', 'append'])]),
   size: PropTypes.string,
   tag: tagPropType,
   toggle: PropTypes.func,
@@ -33,7 +32,6 @@ const defaultProps = {
   direction: 'down',
   nav: false,
   active: false,
-  addonType: false,
   inNavbar: false,
   setActiveFromChild: false
 };
@@ -113,8 +111,10 @@ class Dropdown extends React.Component {
   handleDocumentClick(e) {
     if (e && (e.which === 3 || (e.type === 'keyup' && e.which !== keyCodes.tab))) return;
     const container = this.getContainer();
+    const clickIsInContainer = container.contains(e.target) && container !== e.target;
+    const clickIsInInput = container.classList.contains('input-group') && container.classList.contains('dropdown') && e.target.tagName === 'INPUT';
 
-    if (container.contains(e.target) && container !== e.target && (e.type !== 'keyup' || e.which === keyCodes.tab)) {
+    if ((clickIsInContainer && !clickIsInInput) && (e.type !== 'keyup' || e.which === keyCodes.tab)) {
       return;
     }
 
@@ -143,7 +143,7 @@ class Dropdown extends React.Component {
         this.toggle(e);
         setTimeout(() => this.getMenuItems()[0].focus());
       } else if (this.props.isOpen && e.which === keyCodes.esc) {
-        this.toggle(e); 
+        this.toggle(e);
       }
     }
 
@@ -213,7 +213,6 @@ class Dropdown extends React.Component {
       nav,
       setActiveFromChild,
       active,
-      addonType,
       tag,
       ...attrs
     } = omit(this.props, ['toggle', 'disabled', 'inNavbar', 'a11y']);
@@ -231,14 +230,15 @@ class Dropdown extends React.Component {
 
     const classes = mapToCssModules(classNames(
       className,
-      direction !== 'down' && `drop${direction}`,
       nav && active ? 'active' : false,
       setActiveFromChild && subItemIsActive ? 'active' : false,
       {
-        [`input-group-${addonType}`]: addonType,
         'btn-group': group,
         [`btn-group-${size}`]: !!size,
-        dropdown: !group && !addonType,
+        dropdown: !group,
+        dropup: direction === 'up',
+        dropstart: direction === 'start' || direction === 'left',
+        dropend: direction === 'end' || direction === 'right',
         show: isOpen,
         'nav-item': nav
       }

@@ -8,6 +8,7 @@ import ModalBackdropExample from '../examples/ModalBackdrop';
 import ModalNestedExample from '../examples/ModalNested';
 import ModalCustomTimeoutExample from '../examples/ModalCustomTimeout';
 import ModalFadelessExample from '../examples/ModalFadeless';
+import ModalFullscreenExample from '../examples/ModalFullscreen';
 import ModalExternalExample from '../examples/ModalExternal';
 import ModalCustomCloseIconExample from '../examples/ModalCustomCloseIcon';
 import ModalCustomCloseButtonExample from '../examples/ModalCustomCloseButton';
@@ -21,6 +22,8 @@ const ModalCustomTimeoutExampleSource = require('!!raw-loader!../examples/ModalC
 const ModalExampleSource = require('!!raw-loader!../examples/Modal');
 const ModalExternalExampleSource = require('!!raw-loader!../examples/ModalExternal');
 const ModalFadelessExampleSource = require('!!raw-loader!../examples/ModalFadeless');
+const ModalFullscreenExampleSource = require('!!raw-loader!../examples/ModalFullscreen');
+
 const ModalNestedExampleSource = require('!!raw-loader!../examples/ModalNested');
 const ModalDestructuringExampleSource = require('!!raw-loader!../examples/ModalDestructuring');
 const ModalFocusOnDestroyExampleSource = require('!!raw-loader!../examples/ModalFocusAfterClose');
@@ -56,6 +59,11 @@ const ModalsPage = () => {
   autoFocus: PropTypes.bool,
   // if modal should be centered vertically in viewport
   centered: PropTypes.bool,
+  // if modal should be fullscreen
+  fullscreen: PropTypes.oneOfType([
+    PropTypes.bool, // always fullscreen
+    PropTypes.oneOf(['sm', 'md', 'lg', 'xl']), // fullscreen below breakpoints
+  ]),
   // corresponds to bootstrap's modal sizes, ie. 'lg' or 'sm'
   size: PropTypes.string,
   // callback for toggling isOpen in the controlling component
@@ -110,6 +118,33 @@ const ModalsPage = () => {
   // container to append the modal to
   container: PropTypes.oneOfType([PropTypes.string, PropTypes.func, DOMElement]),
 }`}
+        </PrismCode>
+      </pre>
+
+      <h4>Fullscreen Modals</h4>
+
+      <div className="docs-example">
+        <div className="btn-group">
+          <div className="btn">
+            <ModalFullscreenExample buttonLabel="Full screen" fullscreen />
+          </div>
+          <div className="btn">
+            <ModalFullscreenExample buttonLabel="Full screen below sm" fullscreen="sm" />
+          </div>
+          <div className="btn">
+            <ModalFullscreenExample buttonLabel="Full screen below md" fullscreen="md" />
+          </div>
+          <div className="btn">
+            <ModalFullscreenExample buttonLabel="Full screen below lg" fullscreen="lg" />
+          </div>
+          <div className="btn">
+            <ModalFullscreenExample buttonLabel="Full screen below xl" fullscreen="xl" />
+          </div>
+        </div>
+      </div>
+      <pre>
+        <PrismCode className="language-jsx">
+          {ModalFullscreenExampleSource}
         </PrismCode>
       </pre>
 

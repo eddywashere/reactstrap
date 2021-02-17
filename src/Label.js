@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { mapToCssModules, tagPropType, isObject } from './utils';
 
-const colWidths = ['xs', 'sm', 'md', 'lg', 'xl'];
+const colWidths = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
 const stringOrNumberProp = PropTypes.oneOfType([PropTypes.number, PropTypes.string]);
 
@@ -32,6 +32,7 @@ const propTypes = {
   md: columnProps,
   lg: columnProps,
   xl: columnProps,
+  xxl: columnProps,
   widths: PropTypes.array,
 };
 
@@ -94,7 +95,7 @@ const Label = (props) => {
 
   const classes = mapToCssModules(classNames(
     className,
-    hidden ? 'sr-only' : false,
+    hidden ? 'visually-hidden' : false,
     check ? 'form-check-label' : false,
     size ? `col-form-label-${size}` : false,
     colClasses,

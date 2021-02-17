@@ -168,6 +168,36 @@ describe('Modal', () => {
     wrapper.unmount();
   });
 
+  describe('fullscreen', () => {
+    it('should render non fullscreen by default', () => {
+      const wrapper = didMount(<Modal isOpen toggle={toggle}>Yo!</Modal>);
+      jest.runTimersToTime(300);
+
+      expect(document.getElementsByClassName('modal-dialog').length).toBe(1);
+      expect(document.getElementsByClassName('modal-fullscreen').length).toBe(0);
+      wrapper.unmount();
+    });
+
+    it('should always render fullscreen if true', () => {
+      const wrapper = didMount(<Modal isOpen toggle={toggle} fullscreen>Yo!</Modal>);
+      jest.runTimersToTime(300);
+
+      expect(document.getElementsByClassName('modal-dialog').length).toBe(1);
+      expect(document.getElementsByClassName('modal-fullscreen').length).toBe(1);
+      wrapper.unmount();
+    });
+
+    it('should render fullscreen below breakpoint if breakpoint is provided', () => {
+      const wrapper = didMount(<Modal isOpen toggle={toggle} fullscreen="lg">Yo!</Modal>);
+      jest.runTimersToTime(300);
+
+      expect(document.getElementsByClassName('modal-dialog').length).toBe(1);
+      expect(document.getElementsByClassName('modal-fullscreen').length).toBe(0);
+      expect(document.getElementsByClassName('modal-fullscreen-lg-down').length).toBe(1);
+      wrapper.unmount();
+    });
+  });
+
   it('should render with additional props if provided', () => {
     isOpen = true;
     const wrapper = didMount(

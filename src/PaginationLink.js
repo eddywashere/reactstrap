@@ -78,8 +78,8 @@ const PaginationLink = (props) => {
         {children || defaultCaret}
       </span>,
       <span
-        className="sr-only"
-        key="sr"
+        className="visually-hidden"
+        key="ariaLabel"
       >
         {ariaLabel}
       </span>,

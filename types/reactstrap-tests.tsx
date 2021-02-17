@@ -36,7 +36,6 @@ import {
   Col,
   Container,
   Collapse,
-  CustomInput,
   Fade,
   Form,
   FormFeedback,
@@ -44,8 +43,6 @@ import {
   FormText,
   Input,
   InputGroup,
-  InputGroupAddon,
-  InputGroupButtonDropdown,
   InputGroupText,
   Pagination,
   Label,
@@ -1896,42 +1893,38 @@ const Example52 = (props: any) => {
   return (
     <div>
       <InputGroup>
-        <InputGroupAddon addonType="prepend">@</InputGroupAddon>
+        <InputGroupText>@</InputGroupText>
         <Input placeholder="username" />
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend">
+        <InputGroupText>
           <Input
             addon
             type="checkbox"
             aria-label="Checkbox for following text input"
           />
-        </InputGroupAddon>
+        </InputGroupText>
         <Input placeholder="Check it out" />
       </InputGroup>
       <br />
       <InputGroup>
         <Input placeholder="username" />
-        <InputGroupAddon addonType="prepend">@example.com</InputGroupAddon>
+        <InputGroupText>@example.com</InputGroupText>
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>$</InputGroupText>
-          <InputGroupText>$</InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>$</InputGroupText>
+        <InputGroupText>$</InputGroupText>
         <Input placeholder="Dolla dolla billz yo!" />
-        <InputGroupAddon addonType="append">
-          <InputGroupText>$</InputGroupText>
-          <InputGroupText>$</InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>$</InputGroupText>
+        <InputGroupText>$</InputGroupText>
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend">$</InputGroupAddon>
+        <InputGroupText>$</InputGroupText>
         <Input placeholder="Amount" type="number" step="1" />
-        <InputGroupAddon addonType="append">.00</InputGroupAddon>
+        <InputGroupText>.00</InputGroupText>
       </InputGroup>
     </div>
   );
@@ -1941,19 +1934,19 @@ const Example53 = (props: any) => {
   return (
     <div>
       <InputGroup>
-        <InputGroupAddon addonType="prepend">To the Left!</InputGroupAddon>
+        <InputGroupText>To the Left!</InputGroupText>
         <Input />
       </InputGroup>
       <br />
       <InputGroup>
         <Input />
-        <InputGroupAddon addonType="append">To the Right!</InputGroupAddon>
+        <InputGroupText>To the Right!</InputGroupText>
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend">To the Left!</InputGroupAddon>
+        <InputGroupText>To the Left!</InputGroupText>
         <Input placeholder="and..." />
-        <InputGroupAddon addonType="append">To the Right!</InputGroupAddon>
+        <InputGroupText>To the Right!</InputGroupText>
       </InputGroup>
     </div>
   );
@@ -1963,17 +1956,17 @@ const Example54 = (props: any) => {
   return (
     <div>
       <InputGroup size="lg">
-        <InputGroupAddon addonType="prepend">@lg</InputGroupAddon>
+        <InputGroupText>@lg</InputGroupText>
         <Input />
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend">@normal</InputGroupAddon>
+        <InputGroupText>@normal</InputGroupText>
         <Input />
       </InputGroup>
       <br />
       <InputGroup size="sm">
-        <InputGroupAddon addonType="prepend">@sm</InputGroupAddon>
+        <InputGroupText>@sm</InputGroupText>
         <Input />
       </InputGroup>
     </div>
@@ -1984,23 +1977,17 @@ const Example55 = (props: any) => {
   return (
     <div>
       <InputGroup>
-        <InputGroupAddon addonType="prepend">
-          <Button>I'm a button</Button>
-        </InputGroupAddon>
+        <Button>I'm a button</Button>
         <Input />
       </InputGroup>
       <br />
       <InputGroup>
         <Input />
-        <InputGroupAddon addonType="append"></InputGroupAddon>
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend"></InputGroupAddon>
         <Input placeholder="and..." />
-        <InputGroupAddon addonType="append">
-          <Button color="secondary">I'm a button</Button>
-        </InputGroupAddon>
+        <Button color="secondary">I'm a button</Button>
       </InputGroup>
     </div>
   );
@@ -2010,17 +1997,17 @@ const Example56 = (props: any) => {
   return (
     <div>
       <InputGroup size="lg">
-        <InputGroupAddon addonType="prepend">@lg</InputGroupAddon>
+        <InputGroupText>@lg</InputGroupText>
         <Input />
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend">@normal</InputGroupAddon>
+        <InputGroupText>@normal</InputGroupText>
         <Input />
       </InputGroup>
       <br />
       <InputGroup size="sm">
-        <InputGroupAddon addonType="prepend">@sm</InputGroupAddon>
+        <InputGroupText>@sm</InputGroupText>
         <Input />
       </InputGroup>
     </div>
@@ -2031,23 +2018,17 @@ const Example57 = (props: any) => {
   return (
     <div>
       <InputGroup>
-        <InputGroupAddon addonType="prepend">
-          <Button>I'm a button</Button>
-        </InputGroupAddon>
+        <Button>I'm a button</Button>
         <Input />
       </InputGroup>
       <br />
       <InputGroup>
         <Input />
-        <InputGroupAddon addonType="prepend"></InputGroupAddon>
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend"></InputGroupAddon>
         <Input placeholder="and..." />
-        <InputGroupAddon addonType="append">
-          <Button color="secondary">I'm a button</Button>
-        </InputGroupAddon>
+        <Button color="secondary">I'm a button</Button>
       </InputGroup>
     </div>
   );
@@ -2057,25 +2038,25 @@ const Example58 = (props: any) => {
   return (
     <div>
       <InputGroup>
-        <InputGroupAddon addonType="prepend">To the Left!</InputGroupAddon>
+        <InputGroupText>To the Left!</InputGroupText>
         <Input />
       </InputGroup>
       <br />
       <InputGroup>
         <Input />
-        <InputGroupAddon addonType="append" color="secondary">
+        <InputGroupText color="secondary">
           To the Right!
-        </InputGroupAddon>
+        </InputGroupText>
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend" color="danger">
+        <InputGroupText color="danger">
           To the Left!
-        </InputGroupAddon>
+        </InputGroupText>
         <Input placeholder="and..." />
-        <InputGroupAddon addonType="append" color="success">
+        <InputGroupText color="success">
           To the Right!
-        </InputGroupAddon>
+        </InputGroupText>
       </InputGroup>
     </div>
   );
@@ -2188,6 +2169,9 @@ const ExampleResponsiveContainer = (props: any) => {
       </Container>
       <Container className="themed-container" fluid="xl">
         .container-xl
+      </Container>
+      <Container className="themed-container" fluid="xxl">
+        .container-xxl
       </Container>
       <Container className="themed-container" fluid={true}>
         .container-fluid
@@ -3026,7 +3010,7 @@ class Example75 extends React.Component<any, any> {
           <NavbarBrand href="/">reactstrap</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="ms-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
               </NavItem>
@@ -3075,10 +3059,10 @@ class Example76 extends React.Component<any, any> {
     return (
       <div>
         <Navbar color="faded" light>
-          <NavbarBrand href="/" className="mr-auto">
+          <NavbarBrand href="/" className="me-auto">
             reactstrap
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          <NavbarToggler onClick={this.toggleNavbar} className="me-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
               <NavItem>
@@ -3473,7 +3457,7 @@ class PopoverItem extends React.Component<any, any> {
     return (
       <span>
         <Button
-          className="mr-1"
+          className="me-1"
           color="secondary"
           id={'Popover-' + this.props.id}
           onClick={this.toggle}
@@ -4166,7 +4150,7 @@ class Example102 extends React.Component<any, any> {
           .
         </p>
         <Tooltip
-          placement="right"
+          placement="end"
           isOpen={this.state.tooltipOpen}
           target="TooltipExample"
           toggle={this.toggle}
@@ -4240,7 +4224,7 @@ class TooltipItem extends React.Component<any, any> {
     return (
       <span>
         <Button
-          className="mr-1"
+          className="me-1"
           color="secondary"
           id={'Tooltip-' + this.props.id}
         >
@@ -4320,7 +4304,7 @@ function Example() {
         .
       </p>
       <UncontrolledTooltip
-        placement="right"
+        placement="end"
         target="UncontrolledTooltipExample"
         popperClassName="popperClassName"
       >
@@ -4430,7 +4414,7 @@ class Example108 extends React.Component<any, any> {
           <NavbarToggler onClick={this.toggle} />
           <NavbarBrand href="/">reactstrap</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="ms-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
               </NavItem>
@@ -4469,7 +4453,7 @@ class Example109 extends React.Component<any, any> {
           <NavbarToggler onClick={this.toggle} />
           <NavbarBrand href="/">reactstrap</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="ms-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
               </NavItem>
@@ -4508,7 +4492,7 @@ class Example110 extends React.Component<any, any> {
           <NavbarToggler onClick={this.toggle} />
           <NavbarBrand href="/">reactstrap</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="ms-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
               </NavItem>
@@ -4549,7 +4533,7 @@ class Example111 extends React.Component<any, any> {
             reactstrap
           </NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="ms-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
               </NavItem>
@@ -4590,7 +4574,7 @@ class Example112 extends React.Component<any, any> {
             reactstrap
           </NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="ms-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
               </NavItem>
@@ -4767,43 +4751,10 @@ const Example116 = (props: any) => {
   return (
     <div>
       <InputGroup>
-        <InputGroupAddon addonType="prepend">
-          <Button>I'm a button</Button>
-        </InputGroupAddon>
+        <Button>I'm a button</Button>
         <Input />
       </InputGroup>
       <br />
-      <InputGroup>
-        <Input />
-        <InputGroupButtonDropdown addonType="append" isOpen={false}>
-          <DropdownToggle caret>Button Dropdown</DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem header>Header</DropdownItem>
-            <DropdownItem disabled>Action</DropdownItem>
-            <DropdownItem>Another Action</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>Another Action</DropdownItem>
-          </DropdownMenu>
-        </InputGroupButtonDropdown>
-      </InputGroup>
-      <br />
-      <InputGroup>
-        <InputGroupButtonDropdown addonType="prepend" isOpen={true}>
-          <Button outline>Split Button</Button>
-          <DropdownToggle split outline />
-          <DropdownMenu>
-            <DropdownItem header>Header</DropdownItem>
-            <DropdownItem disabled>Action</DropdownItem>
-            <DropdownItem>Another Action</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>Another Action</DropdownItem>
-          </DropdownMenu>
-        </InputGroupButtonDropdown>
-        <Input placeholder="and..." />
-        <InputGroupAddon addonType="append">
-          <Button color="secondary">I'm a button</Button>
-        </InputGroupAddon>
-      </InputGroup>
     </div>
   );
 };
@@ -4873,7 +4824,6 @@ import { default as CarouselCaption_ } from './lib/CarouselCaption'; /* tslint:d
 import { default as Col_ } from './lib/Col'; /* tslint:disable-line: no-relative-import-in-test */
 import { default as Collapse_ } from './lib/Collapse'; /* tslint:disable-line: no-relative-import-in-test */
 import { default as Container_ } from './lib/Container'; /* tslint:disable-line: no-relative-import-in-test */
-import { default as CustomInput_ } from './lib/CustomInput'; /* tslint:disable-line: no-relative-import-in-test */
 import { default as Dropdown_ } from './lib/Dropdown'; /* tslint:disable-line: no-relative-import-in-test */
 import { default as DropdownItem_ } from './lib/DropdownItem'; /* tslint:disable-line: no-relative-import-in-test */
 import { default as DropdownMenu_ } from './lib/DropdownMenu'; /* tslint:disable-line: no-relative-import-in-test */
@@ -4885,8 +4835,6 @@ import { default as FormGroup_ } from './lib/FormGroup'; /* tslint:disable-line:
 import { default as FormText_ } from './lib/FormText'; /* tslint:disable-line: no-relative-import-in-test */
 import { default as Input_ } from './lib/Input'; /* tslint:disable-line: no-relative-import-in-test */
 import { default as InputGroup_ } from './lib/InputGroup'; /* tslint:disable-line: no-relative-import-in-test */
-import { default as InputGroupAddon_ } from './lib/InputGroupAddon'; /* tslint:disable-line: no-relative-import-in-test */
-import { default as InputGroupButtonDropdown_ } from './lib/InputGroupButtonDropdown'; /* tslint:disable-line: no-relative-import-in-test */
 import { default as InputGroupText_ } from './lib/InputGroupText'; /* tslint:disable-line: no-relative-import-in-test */
 import { default as Jumbotron_ } from './lib/Jumbotron'; /* tslint:disable-line: no-relative-import-in-test */
 import { default as Label_ } from './lib/Label'; /* tslint:disable-line: no-relative-import-in-test */
@@ -4976,7 +4924,6 @@ function AnyPropExample() {
       <Col_ foo={1} bar={false} foobar="example" />
       <Collapse_ foo={1} bar={false} foobar="example" />
       <Container_ foo={1} bar={false} foobar="example" />
-      <CustomInput_ id="as" foo={1} bar={false} foobar="example" type="file" />
       <Dropdown_ foo={1} bar={false} foobar="example" />
       <DropdownItem_ foo={1} bar={false} foobar="example" />
       <DropdownMenu_ foo={1} bar={false} foobar="example" />
@@ -4988,18 +4935,6 @@ function AnyPropExample() {
       <FormText_ foo={1} bar={false} foobar="example" />
       <Input_ foo={1} bar={false} foobar="example" />
       <InputGroup_ foo={1} bar={false} foobar="example" />
-      <InputGroupAddon_
-        foo={1}
-        bar={false}
-        foobar="example"
-        addonType="prepend"
-      />
-      <InputGroupButtonDropdown_
-        foo={1}
-        bar={false}
-        foobar="example"
-        addonType="prepend"
-      />
       <InputGroupText_ foo={1} bar={false} foobar="example" />
       <Jumbotron_ foo={1} bar={false} foobar="example" />
       <Label_ foo={1} bar={false} foobar="example" />
@@ -5050,219 +4985,6 @@ interface GenericInterface {
   foo: number;
   bar: boolean;
   foobar?: string;
-}
-
-class Example119 extends React.Component<any, any> {
-  render() {
-    return (
-      <Form>
-        <FormGroup>
-          <Label for="exampleCheckbox">Checkboxes</Label>
-          <div>
-            <CustomInput
-              type="checkbox"
-              id="exampleCustomCheckbox"
-              label="Check this custom checkbox"
-            />
-            <CustomInput
-              type="checkbox"
-              id="exampleCustomCheckbox2"
-              label="Or this one"
-            />
-            <CustomInput
-              type="checkbox"
-              id="exampleCustomCheckbox3"
-              label={<span>Or this one</span>}
-            />
-            <CustomInput
-              type="checkbox"
-              id="exampleCustomCheckbox4"
-              label="But not this disabled one"
-              disabled
-            />
-            <CustomInput
-              type="checkbox"
-              id="exampleCustomCheckbox5"
-              label="Can't click this label to check!"
-              htmlFor="exampleCustomCheckbox5_X"
-              disabled
-            />
-          </div>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleCheckbox">Radios</Label>
-          <div>
-            <CustomInput
-              type="radio"
-              id="exampleCustomRadio"
-              name="customRadio"
-              label="Select this custom radio"
-            />
-            <CustomInput
-              type="radio"
-              id="exampleCustomRadio2"
-              name="customRadio"
-              label="Or this one"
-            />
-            <CustomInput
-              type="radio"
-              id="exampleCustomRadio3"
-              name="customRadio"
-              label={<span>Or this one</span>}
-            />
-            <CustomInput
-              type="radio"
-              id="exampleCustomRadio4"
-              label="But not this disabled one"
-              disabled
-            />
-            <CustomInput
-              type="radio"
-              id="exampleCustomRadio5"
-              label="Can't click this label to select!"
-              htmlFor="exampleCustomRadio5_X"
-              disabled
-            />
-          </div>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleCheckbox">Inline</Label>
-          <div>
-            <CustomInput
-              type="checkbox"
-              id="exampleCustomInline"
-              label="An inline custom input"
-              inline
-            />
-            <CustomInput
-              type="checkbox"
-              id="exampleCustomInline2"
-              label="and another one"
-              inline
-            />
-            <CustomInput
-              type="checkbox"
-              id="exampleCustomInline3"
-              label={<span>and this one</span>}
-              inline
-            />
-          </div>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleCustomSelect">Custom Select</Label>
-          <CustomInput
-            type="select"
-            id="exampleCustomSelect"
-            name="customSelect"
-          >
-            <option value="">Select</option>
-            <option>Value 1</option>
-            <option>Value 2</option>
-            <option>Value 3</option>
-            <option>Value 4</option>
-            <option>Value 5</option>
-          </CustomInput>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleCustomMutlipleSelect">
-            Custom Multiple Select
-          </Label>
-          <CustomInput
-            type="select"
-            id="exampleCustomMutlipleSelect"
-            name="customSelect"
-            multiple
-          >
-            <option value="">Select</option>
-            <option>Value 1</option>
-            <option>Value 2</option>
-            <option>Value 3</option>
-            <option>Value 4</option>
-            <option>Value 5</option>
-          </CustomInput>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleCustomSelectDisabled">
-            Custom Select Disabled
-          </Label>
-          <CustomInput
-            type="select"
-            id="exampleCustomSelectDisabled"
-            name="customSelect"
-            disabled
-          >
-            <option value="">Select</option>
-            <option>Value 1</option>
-            <option>Value 2</option>
-            <option>Value 3</option>
-            <option>Value 4</option>
-            <option>Value 5</option>
-          </CustomInput>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleCustomMutlipleSelectDisabled">
-            Custom Multiple Select Disabled
-          </Label>
-          <CustomInput
-            type="select"
-            id="exampleCustomMutlipleSelectDisabled"
-            name="customSelect"
-            multiple
-            disabled
-          >
-            <option value="">Select</option>
-            <option>Value 1</option>
-            <option>Value 2</option>
-            <option>Value 3</option>
-            <option>Value 4</option>
-            <option>Value 5</option>
-          </CustomInput>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleCustomRange">Custom Range</Label>
-          <CustomInput
-            type="range"
-            id="exampleCustomRange"
-            name="customRange"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleCustomFileBrowser">File Browser</Label>
-          <CustomInput
-            type="file"
-            id="exampleCustomFileBrowser"
-            name="customFile"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleCustomFileBrowser">
-            File Browser with Custom Label
-          </Label>
-          <CustomInput
-            type="file"
-            id="exampleCustomFileBrowser"
-            name="customFile"
-            label="Yo, pick a file!"
-          />
-          <CustomInput
-            type="file"
-            id="exampleCustomFileBrowser1"
-            name="customFile"
-            label={<span>Yo, pick a file!</span>}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleCustomFileBrowser">File Browser Disabled</Label>
-          <CustomInput
-            type="file"
-            id="exampleCustomFileBrowser"
-            name="customFile"
-            disabled
-          />
-        </FormGroup>
-      </Form>
-    );
-  }
 }
 
 class Example120 extends React.Component<any, any> {
@@ -5614,11 +5336,6 @@ class Example130 extends React.Component {
   }
 }
 
-const CustomInputTestInnerRef = () => {
-  const ref = React.createRef<HTMLButtonElement>();
-  return <CustomInput id="aa" type="checkbox" innerRef={ref} />;
-};
-
 const PopoverTestInnerRef = () => {
   const target = React.createRef<HTMLButtonElement>();
   const container = React.createRef<HTMLDivElement>();
@@ -5730,12 +5447,6 @@ const MegaTest = () => {
       <Col ref={React.createRef<Col>()} {...htmlProps} />
       <Collapse ref={React.createRef<Collapse>()} {...htmlProps} />
       <Container ref={React.createRef<Container>()} {...htmlProps} />
-      <CustomInput
-        id="aa"
-        ref={React.createRef<CustomInput>()}
-        {...htmlProps}
-        type="checkbox"
-      />
       <Dropdown ref={React.createRef<Dropdown>()} {...htmlProps} />
       <DropdownItem ref={React.createRef<DropdownItem>()} {...htmlProps} />
       <DropdownMenu ref={React.createRef<DropdownMenu>()} {...htmlProps} />
@@ -5747,11 +5458,6 @@ const MegaTest = () => {
       <FormText ref={React.createRef<FormText>()} {...htmlProps} />
       <Input ref={React.createRef<Input>()} {...htmlProps} />
       <InputGroup ref={React.createRef<InputGroup>()} {...htmlProps} />
-      <InputGroupAddon
-        ref={React.createRef<InputGroupAddon>()}
-        {...htmlProps}
-        addonType="append"
-      />
       <InputGroupText ref={React.createRef<InputGroupText>()} {...htmlProps} />
       <Jumbotron ref={React.createRef<Jumbotron>()} {...htmlProps} />
       <Label ref={React.createRef<Label>()} {...htmlProps} />

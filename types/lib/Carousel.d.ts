@@ -11,6 +11,7 @@ interface CommonCarouselProps extends React.HTMLAttributes<HTMLElement> {
   mouseEnter?: () => void;
   mouseExit?: () => void;
   slide?: boolean;
+  dark?: boolean;
   cssModule?: CSSModule;
   enableTouch?: boolean;
 }

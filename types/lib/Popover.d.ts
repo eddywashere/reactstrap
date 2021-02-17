@@ -3,7 +3,7 @@ import * as Popper from 'popper.js';
 import { CSSModule } from './index';
 
 interface PopoverChildrenRenderProps {
-  scheduleUpdate: () => void;
+  update: () => void;
 }
 
 export type PopoverChildren =

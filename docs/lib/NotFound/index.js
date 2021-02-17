@@ -19,7 +19,7 @@ export default () => {
                 Can't find what you're looking for? <a href="https://github.com/reactstrap/reactstrap/issues/new">Open</a> up an issue.
               </p>
               <p>
-                <Button outline color="danger" className="mr-1" tag={Link} to="/">Get Started</Button>
+                <Button outline color="danger" className="me-1" tag={Link} to="/">Get Started</Button>
                 <Button color="danger" tag={Link} to="/components/">View Components</Button>
               </p>
             </Col>

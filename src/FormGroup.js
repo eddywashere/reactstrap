@@ -7,6 +7,8 @@ const propTypes = {
   children: PropTypes.node,
   row: PropTypes.bool,
   check: PropTypes.bool,
+  floating: PropTypes.bool,
+  switch: PropTypes.bool,
   inline: PropTypes.bool,
   disabled: PropTypes.bool,
   tag: tagPropType,
@@ -24,20 +26,26 @@ const FormGroup = (props) => {
     cssModule,
     row,
     disabled,
+    floating,
     check,
     inline,
     tag: Tag,
     ...attributes
   } = props;
 
+  const formCheck = check || props.switch;
+
   const classes = mapToCssModules(classNames(
     className,
     row ? 'row' : false,
-    check ? 'form-check' : 'form-group',
-    check && inline ? 'form-check-inline' : false,
-    check && disabled ? 'disabled' : false
+    formCheck ? 'form-check' : 'mb-3',
+    props.switch ? 'form-switch' : false,
+    floating ? 'form-floating' : false,
+    formCheck && inline ? 'form-check-inline' : false,
+    formCheck && disabled ? 'disabled' : false,
+
   ), cssModule);
-  
+
   if (Tag === 'fieldset') {
     attributes.disabled = disabled;
   }

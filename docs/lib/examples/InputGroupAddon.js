@@ -1,31 +1,23 @@
 import React from 'react';
-import { InputGroup, InputGroupText, InputGroupAddon, Input } from 'reactstrap';
+import { InputGroup, InputGroupText, Input } from 'reactstrap';
 
 const Example = (props) => {
   return (
     <div>
       <InputGroup>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>To the Left!</InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>To the Left!</InputGroupText>
         <Input />
       </InputGroup>
       <br />
       <InputGroup>
         <Input />
-        <InputGroupAddon addonType="append">
-          <InputGroupText>To the Right!</InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>To the Right!</InputGroupText>
       </InputGroup>
       <br />
       <InputGroup>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>To the Left!</InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>To the Left!</InputGroupText>
         <Input placeholder="and..." />
-        <InputGroupAddon addonType="append">
-          <InputGroupText>To the Right!</InputGroupText>
-        </InputGroupAddon>
+        <InputGroupText>To the Right!</InputGroupText>
       </InputGroup>
     </div>
   );

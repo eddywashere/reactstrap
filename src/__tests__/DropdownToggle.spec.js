@@ -28,7 +28,7 @@ describe('DropdownToggle', () => {
     expect(wrapper.text()).toBe('Ello world');
   });
 
-  it('should add default sr-only content', () => {
+  it('should add default visually-hidden content', () => {
     const wrapper = mount(
       <DropdownContext.Provider value={{ isOpen, inNavbar, toggle }}>
         <DropdownToggle />
@@ -36,10 +36,10 @@ describe('DropdownToggle', () => {
     );
 
     expect(wrapper.text()).toBe('Toggle Dropdown');
-    expect(wrapper.find('.sr-only').hostNodes().length).toBe(1);
+    expect(wrapper.find('.visually-hidden').hostNodes().length).toBe(1);
   });
 
-  it('should add default sr-only content', () => {
+  it('should add default visually-hidden content', () => {
     const wrapper = mount(
       <DropdownContext.Provider value={{ isOpen, inNavbar, toggle }}>
         <DropdownToggle aria-label="Dropup Toggle" />
@@ -47,7 +47,7 @@ describe('DropdownToggle', () => {
     );
 
     expect(wrapper.text()).toBe('Dropup Toggle');
-    expect(wrapper.find('.sr-only').hostNodes().length).toBe(1);
+    expect(wrapper.find('.visually-hidden').hostNodes().length).toBe(1);
   });
 
   it('should render elements', () => {
@@ -149,7 +149,7 @@ describe('DropdownToggle', () => {
           <DropdownToggle>Ello world</DropdownToggle>
         </DropdownContext.Provider>
       );
-      
+
       const instance = wrapper.instance();
 
       instance.onClick({
