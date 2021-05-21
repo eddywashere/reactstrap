@@ -2,6 +2,8 @@ export interface CSSModule {
   [className: string]: string;
 }
 
+export { default as Accordion } from './Accordion';
+export { AccordionProps } from './Accordion';
 export { default as Alert } from './Alert';
 export { AlertProps } from './Alert';
 export { default as Badge } from './Badge';
@@ -154,6 +156,8 @@ export { default as ToastHeader } from './ToastHeader';
 export { ToastHeaderProps } from './ToastHeader';
 export { default as Tooltip } from './Tooltip';
 export { TooltipProps } from './Tooltip';
+export { default as UncontrolledAccordion } from './UncontrolledAccordion';
+export { UncontrolledAccordionProps } from './UncontrolledAccordion';
 export {
   UncontrolledAlert,
   UncontrolledButtonDropdown,

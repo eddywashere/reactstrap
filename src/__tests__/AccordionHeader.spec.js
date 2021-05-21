@@ -21,9 +21,9 @@ describe('AccordionHeader', () => {
     expect(wrapper.find('div.accordion-header').length).toBe(1);
   });
 
-  it('should be open if openId == targetId', () => {
+  it('should be open if open == targetId', () => {
     const wrapper = mount(
-      <AccordionContext.Provider value={{ openId: 'cool-accordion' }}>
+      <AccordionContext.Provider value={{ open: 'cool-accordion' }}>
         <AccordionHeader targetId="cool-accordion" />
       </AccordionContext.Provider>
     );

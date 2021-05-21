@@ -33,7 +33,7 @@ const AccordionItem = (props) => {
     ...attributes
   } = props;
 
-  const { openId } = useContext(AccordionContext);
+  const { open } = useContext(AccordionContext);
 
   const classes = mapToCssModules(classNames(
     className,
@@ -41,7 +41,10 @@ const AccordionItem = (props) => {
   ), cssModule);
 
   return (
-    <Collapse {...attributes} className={classes} ref={innerRef} isOpen={openId === accordionId}>
+    <Collapse
+      {...attributes}
+      className={classes}
+      ref={innerRef} isOpen={Array.isArray(open) ? open.includes(accordionId) : open === accordionId }>
       <Tag className="accordion-body">{children}</Tag>
     </Collapse>    
   );

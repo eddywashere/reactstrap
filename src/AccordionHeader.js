@@ -31,7 +31,7 @@ const AccordionHeader = (props) => {
     targetId,
     ...attributes
   } = props;
-  const { openId, toggle } = useContext(AccordionContext);
+  const { open, toggle } = useContext(AccordionContext);
 
   const classes = mapToCssModules(classNames(
     className,
@@ -40,7 +40,9 @@ const AccordionHeader = (props) => {
 
   const buttonClasses = mapToCssModules(classNames(
     'accordion-button',
-    { collapsed: openId !== targetId },
+    {
+      collapsed: !(Array.isArray(open) ? open.includes(targetId) : open === targetId)
+    },
   ), cssModule);
 
   return (

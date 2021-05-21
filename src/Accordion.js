@@ -14,7 +14,8 @@ const propTypes = {
     PropTypes.func,
   ]),
   children: PropTypes.node,
-  openId: PropTypes.string.isRequired,
+  flush: PropTypes.boolean,
+  open: PropTypes.oneOfType([PropTypes.array, PropTypes.string]).isRequired,
   toggle: PropTypes.func.isRequired,
 };
 
@@ -24,7 +25,8 @@ const defaultProps = {
 
 const Accordion = (props) => {
   const {
-    openId,
+    flush,
+    open,
     toggle,
     className,
     cssModule,
@@ -35,10 +37,13 @@ const Accordion = (props) => {
   const classes = mapToCssModules(classNames(
     className,
     'accordion',
+    {
+      'accordion-flush': flush
+    }
   ), cssModule);
 
   const accordionContext = useMemo(() => ({
-    openId,
+    open,
     toggle,
   }));
 

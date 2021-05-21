@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from 'reactstrap';
 
 const Example = (props) => {
-  const [openId, setOpenId] = useState();
+  const [open, setOpen] = useState('1');
   const toggle = (id) => {
-    openId === id ? setOpenId(undefined) : setOpenId(id);
+    open === id ? setOpen() : setOpen(id);
   };
 
   return (
     <div>
-      <Accordion openId={openId} toggle={toggle}>
+      <Accordion open={open} toggle={toggle}>
         <AccordionItem>
           <AccordionHeader targetId="1">
             Accordion Item 1

@@ -13,22 +13,28 @@ const propTypes = {
     PropTypes.func,
   ]),
   children: PropTypes.node,
+  defaultOpen: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  stayOpen: PropTypes.bool,
 };
 
 const defaultProps = {
   tag: 'div'
 };
 
-const UncntrolledAccordion = (props) => {
-  const [openId, setOpenId] = useState();
+const UncontrolledAccordion = ({ defaultOpen, stayOpen, ...props }) => {
+  const [open, setOpen] = useState(defaultOpen || (stayOpen ? [] : undefined));
   const toggle = (id) => {
-    openId === id ? setOpenId(undefined) : setOpenId(id);
+    if (stayOpen) {
+      open.includes(id) ? setOpen(open.filter(accordionId => accordionId !== id)) : setOpen([...open, id]);
+    } else {
+      open === id ? setOpen(undefined) : setOpen(id);
+    }
   };
 
-  return <Accordion {...props} openId={openId} toggle={toggle} />;
+  return <Accordion {...props} open={open} toggle={toggle} />;
 };
 
 Accordion.propTypes = propTypes;
 Accordion.defaultProps = defaultProps;
 
-export default UncntrolledAccordion;
+export default UncontrolledAccordion;

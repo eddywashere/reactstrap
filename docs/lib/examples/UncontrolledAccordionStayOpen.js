@@ -4,7 +4,7 @@ import { UncontrolledAccordion, AccordionBody, AccordionHeader, AccordionItem } 
 const Example = (props) => {
   return (
     <div>
-      <UncontrolledAccordion defaultOpen='1'>
+      <UncontrolledAccordion defaultOpen={['1', '2']} stayOpen>
         <AccordionItem>
           <AccordionHeader targetId="1">
             Accordion Item 1

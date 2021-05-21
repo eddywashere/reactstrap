@@ -24,9 +24,9 @@ describe('AccordionBody', () => {
     expect(wrapper.find('.accordion-collapse.collapse').find('div.accordion-body').length).toBe(1);
   });
 
-  it('should be open if openId == id', () => {
+  it('should be open if open == id', () => {
     const wrapper = mount(
-      <AccordionContext.Provider value={{ openId: 'cool-accordion' }}>
+      <AccordionContext.Provider value={{ open: 'cool-accordion' }}>
         <AccordionBody accordionId="cool-accordion" />
       </AccordionContext.Provider>
     );
