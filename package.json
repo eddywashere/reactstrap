@@ -288,7 +288,7 @@
     "copy-webpack-plugin": "^6.0.2",
     "coveralls": "^3.1.0",
     "cross-env": "^2.0.0",
-    "css-loader": "^2.1.0",
+    "css-loader": "^5.2.6",
     "customize-cra": "^0.2.8",
     "dtslint": "^4.0.4",
     "ejs": "^2.5.9",
