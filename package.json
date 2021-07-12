@@ -284,7 +284,7 @@
     "bootstrap": "^4.4.1",
     "clean-webpack-plugin": "^3.0.0",
     "conventional-changelog-cli": "^2.0.21",
-    "conventional-recommended-bump": "^0.3.0",
+    "conventional-recommended-bump": "^4.1.1",
     "copy-webpack-plugin": "^6.0.2",
     "coveralls": "^3.1.0",
     "cross-env": "^2.0.0",
