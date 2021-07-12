@@ -289,7 +289,7 @@
     "coveralls": "^3.1.0",
     "cross-env": "^2.0.0",
     "css-loader": "^2.1.0",
-    "customize-cra": "^0.2.8",
+    "customize-cra": "^0.9.1",
     "dtslint": "^4.0.4",
     "ejs": "^2.5.9",
     "enzyme": "^3.11.0",
