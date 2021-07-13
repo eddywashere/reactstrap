@@ -109,11 +109,11 @@ class Dropdown extends React.Component {
     return this._$menuCtrl;
   }
 
-  getItemType() {
+  getMenuType() {
     if(this.context.menuRole === 'listbox') {
-      return 'option'
+      return 'listbox';
     }
-    return 'menuitem'
+    return 'menu';
   }
 
   getMenuItems() {
@@ -121,7 +121,7 @@ class Dropdown extends React.Component {
     // be null, but it is sometimes null in tests. To mitigate that, we just
     // use `this.getContainer()` as the fallback `menuContainer`.
     const menuContainer = this.getMenu() || this.getContainer();
-    return [].slice.call(menuContainer.querySelectorAll(`[role="${this.getItemType()}"]`));
+    return [].slice.call(menuContainer.querySelectorAll(`[role="${this.getMenuType()}"] > *`)).filter((el) => el.tabIndex >= 0);
   }
 
   addEvents() {
@@ -150,13 +150,12 @@ class Dropdown extends React.Component {
   }
 
   handleKeyDown(e) {
-    const isTargetMenuItem = e.target.getAttribute('role') === 'menuitem' || e.target.getAttribute('role') === 'option';
+    const isTargetMenuItem = this.getMenuItems().indexOf(e.target) >= 0;
     const isTargetMenuCtrl = this.getMenuCtrl() === e.target;
     const isTab = keyCodes.tab === e.which;
 
     if (
-      /input|textarea/i.test(e.target.tagName)
-      || (isTab && !this.props.a11y)
+      (isTab && !this.props.a11y)
       || (isTab && !(isTargetMenuItem || isTargetMenuCtrl))
     ) {
       return;
