@@ -236,7 +236,8 @@ describe('Dropdown', () => {
       isOpen = true;
       jest.spyOn(Dropdown.prototype, 'toggle');
 
-      const wrapper = mount(
+      const preventDefaultMock = jest.fn(),
+            wrapper = mount(
         <Dropdown isOpen={isOpen} toggle={toggle}>
           <DropdownToggle>Toggle</DropdownToggle>
           <DropdownMenu right>
@@ -247,9 +248,11 @@ describe('Dropdown', () => {
 
       expect(Dropdown.prototype.toggle.mock.calls.length).toBe(0);
 
-      wrapper.instance().handleDocumentClick({ type: 'click', which: 3 });
+      wrapper.instance().handleDocumentClick({
+        type: 'click', which: 3, preventDefault: preventDefaultMock });
 
       expect(Dropdown.prototype.toggle.mock.calls.length).toBe(0);
+      expect(preventDefaultMock.mock.calls.length).toBe(1);
       wrapper.detach();
     });
 
@@ -271,6 +274,30 @@ describe('Dropdown', () => {
       wrapper.instance().handleDocumentClick({ type: 'keyup', which: keyCodes.tab });
 
       expect(Dropdown.prototype.toggle.mock.calls.length).toBe(1);
+      wrapper.detach();
+    });
+
+    it('should not call toggle when key is space', () => {
+      isOpen = true;
+      jest.spyOn(Dropdown.prototype, 'toggle');
+
+      const preventDefaultMock = jest.fn(),
+            wrapper = mount(
+        <Dropdown isOpen={isOpen} toggle={toggle}>
+          <DropdownToggle>Toggle</DropdownToggle>
+          <DropdownMenu right>
+            <DropdownItem>Test</DropdownItem>
+            <DropdownItem id="divider" divider />
+          </DropdownMenu>
+        </Dropdown>, { attachTo: element });
+
+      expect(Dropdown.prototype.toggle.mock.calls.length).toBe(0);
+
+      wrapper.instance().handleDocumentClick({
+        type: 'keyup', which: keyCodes.space, preventDefault: preventDefaultMock });
+
+      expect(Dropdown.prototype.toggle.mock.calls.length).toBe(0);
+      expect(preventDefaultMock.mock.calls.length).toBe(1);
       wrapper.detach();
     });
   });

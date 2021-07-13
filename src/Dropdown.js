@@ -137,7 +137,11 @@ class Dropdown extends React.Component {
   }
 
   handleDocumentClick(e) {
-    if (e && (e.which === 3 || (e.type === 'keyup' && e.which !== keyCodes.tab))) return;
+    if (e && (e.which === 3 || (e.type === 'keyup' && e.which !== keyCodes.tab))) {
+      // firefox dispatches an additional click after space is pressed
+      e.preventDefault();
+      return;
+    }
     const container = this.getContainer();
     const menu = this.getMenu();
     const clickIsInContainer = container.contains(e.target) && container !== e.target;
