@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { mapToCssModules } from './utils';
 
 const CarouselCaption = (props) => {
-  const { captionHeader, captionText, cssModule, className } = props;
+  const { captionHeader, captionText, cssModule, className, ...attributes } = props;
   const classes = mapToCssModules(classNames(
     className,
     'carousel-caption',
@@ -13,7 +13,7 @@ const CarouselCaption = (props) => {
   ), cssModule);
 
   return (
-    <div className={classes}>
+    <div {...attributes} className={classes}>
       <h3>{captionHeader}</h3>
       <p>{captionText}</p>
     </div>

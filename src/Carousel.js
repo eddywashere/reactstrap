@@ -166,7 +166,7 @@ class Carousel extends React.Component {
   }
 
   render() {
-    const { cssModule, slide, className } = this.props;
+    const { cssModule, slide, className, ...attributes } = this.props;
     const outerClasses = mapToCssModules(classNames(
       className,
       'carousel',
@@ -185,7 +185,7 @@ class Carousel extends React.Component {
     // Rendering only slides
     if (slidesOnly) {
       return (
-        <div className={outerClasses} onMouseEnter={this.hoverStart} onMouseLeave={this.hoverEnd}>
+        <div {...attributes} className={outerClasses} onMouseEnter={this.hoverStart} onMouseLeave={this.hoverEnd}>
           {this.renderItems(children, innerClasses)}
         </div>
       );
@@ -198,7 +198,7 @@ class Carousel extends React.Component {
       const controlRight = children[2];
 
       return (
-        <div className={outerClasses} onMouseEnter={this.hoverStart} onMouseLeave={this.hoverEnd}>
+        <div {...attributes} className={outerClasses} onMouseEnter={this.hoverStart} onMouseLeave={this.hoverEnd}>
           {this.renderItems(carouselItems, innerClasses)}
           {controlLeft}
           {controlRight}
@@ -219,7 +219,7 @@ class Carousel extends React.Component {
     const controlRight = children[3];
 
     return (
-      <div className={outerClasses} onMouseEnter={this.hoverStart} onMouseLeave={this.hoverEnd}
+      <div {...attributes} className={outerClasses} onMouseEnter={this.hoverStart} onMouseLeave={this.hoverEnd}
         onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd}>
         {wrappedIndicators}
         {this.renderItems(carouselItems, innerClasses)}
