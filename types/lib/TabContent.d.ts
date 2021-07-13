@@ -6,6 +6,7 @@ export interface TabContentProps extends React.HTMLAttributes<HTMLElement> {
   tag?: React.ElementType;
   activeTab?: number | string;
   cssModule?: CSSModule;
+  unmountOnExit?: boolean;
 }
 
 declare class TabContent extends React.Component<TabContentProps> {}

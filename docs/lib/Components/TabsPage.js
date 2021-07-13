@@ -19,6 +19,31 @@ export default function TabsPage() {
           {TabsExampleSource}
         </PrismCode>
       </pre>
+      <h4>TabContent Properties</h4>
+      <pre>
+        <PrismCode className="language-jsx">
+          {`TabContent.propTypes = {
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  activeTab: PropTypes.any,
+  className: PropTypes.string,
+  cssModule: PropTypes.object,
+  // if all inactive tabs should be destructed/removed
+  unmountOnExit: PropTypes.bool // defaults to false
+  // if set to true, renders only active tab
+}`}
+        </PrismCode>
+      </pre>
+      <h4>TabPane Properties</h4>
+      <pre>
+        <PrismCode className="language-jsx">
+          {`TabPane.propTypes = {
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  cssModule: PropTypes.object,
+  tabId: PropTypes.any;
+}`}
+        </PrismCode>
+      </pre>
     </div>
   );
 }

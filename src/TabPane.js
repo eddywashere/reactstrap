@@ -23,10 +23,13 @@ export default function TabPane(props) {
     tag: Tag,
     ...attributes
   } = props;
-  const getClasses = (activeTabId) => mapToCssModules(classNames('tab-pane', className, { active: tabId === activeTabId }), cssModule);
+
+  const tabIsActive = (activeTabId) => tabId === activeTabId;
+  const getClasses = (activeTabId) => mapToCssModules(classNames('tab-pane', className, { active: tabIsActive(activeTabId) }), cssModule);
+  
   return (
     <TabContext.Consumer>
-      {({activeTabId}) => <Tag {...attributes} className={getClasses(activeTabId)} />}
+      {({activeTabId, unmountOnExit}) => (!unmountOnExit || (unmountOnExit && tabIsActive(activeTabId))) ? <Tag {...attributes} className={getClasses(activeTabId)} /> : <></>}
     </TabContext.Consumer>
   );
 }

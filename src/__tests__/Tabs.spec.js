@@ -100,6 +100,38 @@ describe('Tabs', () => {
     expect(wrapper.childAt(0).type()).toBe('main');
   });
 
+  it('should not render inactive tabs when unmountOnExit prop set to true', () => {
+    activeTab = '1';
+    const wrapper = mount(
+      <TabContent unmountOnExit={true} activeTab={activeTab}>
+        <TabPane tabId="1">
+          Tab Content 1
+        </TabPane>
+        <TabPane tabId="2">
+          TabContent 2
+        </TabPane>
+      </TabContent>
+    );
+
+    expect(wrapper.find('.tab-content .tab-pane').length).toBe(1);
+  });
+
+  it('should render all tabs when unmountOnExit prop set to false', () => {
+    activeTab = '1';
+    const wrapper = mount(
+      <TabContent activeTab={activeTab}>
+        <TabPane tabId="1">
+          Tab Content 1
+        </TabPane>
+        <TabPane tabId="2">
+          TabContent 2
+        </TabPane>
+      </TabContent>
+    );
+
+    expect(wrapper.find('.tab-content .tab-pane').length).toBe(2);
+  });
+
   it('should render custom TabPane tag', () => {
     const wrapper = mount(<TabPane tag="main" tabId="1">Tab Content 1</TabPane>, { context: {} });
 

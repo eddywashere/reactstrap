@@ -10,10 +10,12 @@ const propTypes = {
   activeTab: PropTypes.any,
   className: PropTypes.string,
   cssModule: PropTypes.object,
+  unmountOnExit: PropTypes.bool
 };
 
 const defaultProps = {
   tag: 'div',
+  unmountOnExit: false
 };
 
 
@@ -37,6 +39,7 @@ class TabContent extends Component {
     const {
       className,
       cssModule,
+      unmountOnExit,
       tag: Tag,
     } = this.props;
 
@@ -45,7 +48,7 @@ class TabContent extends Component {
     const classes = mapToCssModules(classNames('tab-content', className), cssModule);
 
     return (
-      <TabContext.Provider value={{activeTabId: this.state.activeTab}}>
+      <TabContext.Provider value={{activeTabId: this.state.activeTab, unmountOnExit}}>
         <Tag {...attributes} className={classes} />
       </TabContext.Provider>
     );
