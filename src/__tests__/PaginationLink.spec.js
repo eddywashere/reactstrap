@@ -1,12 +1,19 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { PaginationLink } from '../';
+import { PaginationItemContext } from '../PaginationItemContext';
 
 describe('PaginationLink', () => {
-  it('should render default `a` tag when `href` is present', () => {
-    const wrapper = mount(<PaginationLink href="#" />);
+  it('should render default `a` tag when `href` is present and different than #', () => {
+    const wrapper = shallow(<PaginationLink href="#cool_anchor" />);
 
-    expect(wrapper.find('a').hostNodes().length).toBe(1);
+    expect(wrapper.is('a')).toBe(true);
+  });
+
+  it('should render default `button` tag when `href` is #', () => {
+    const wrapper = shallow(<PaginationLink href="#" />);
+
+    expect(wrapper.is('button')).toBe(true);
   });
 
   it('should render default `button` tag when no `href` is present', () => {
@@ -110,4 +117,23 @@ describe('PaginationLink', () => {
     expect(wrapper.find('.sr-only').text()).toBe('Last');
   });
 
+  it('should render aria-disabled if disabled context is passed', () => {
+    const wrapper = mount(
+      <PaginationItemContext.Provider value={{ disabled: true }}>
+        <PaginationLink />
+      </PaginationItemContext.Provider>
+    );
+
+    expect(wrapper.find({ 'aria-disabled': 'true' }).hostNodes().length).toBe(1);
+  });
+
+  it('should not render aria-disabled if disabled context is passed', () => {
+    const wrapper = mount(
+      <PaginationItemContext.Provider value={{ disabled: false }}>
+        <PaginationLink />
+      </PaginationItemContext.Provider>
+    );
+
+    expect(wrapper.find({ 'aria-disabled': 'true' }).hostNodes().length).toBe(0);
+  });
 });

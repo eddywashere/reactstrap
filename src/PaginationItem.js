@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { mapToCssModules, tagPropType } from './utils';
+import { PaginationItemContext } from './PaginationItemContext';
 
 const propTypes = {
   active: PropTypes.bool,
@@ -23,6 +24,7 @@ const PaginationItem = (props) => {
     cssModule,
     disabled,
     tag: Tag,
+    children,
     ...attributes
   } = props;
 
@@ -36,7 +38,11 @@ const PaginationItem = (props) => {
   ), cssModule);
 
   return (
-    <Tag {...attributes} className={classes} />
+    <Tag {...attributes} className={classes}>
+      <PaginationItemContext.Provider value={{ 'disabled': disabled }}>
+        {children}
+      </PaginationItemContext.Provider>
+    </Tag>
   );
 };
 

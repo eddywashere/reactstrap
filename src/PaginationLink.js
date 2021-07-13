@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { mapToCssModules, tagPropType } from './utils';
+import { PaginationItemContext } from './PaginationItemContext';
 
 const propTypes = {
   'aria-label': PropTypes.string,
@@ -36,6 +37,9 @@ const PaginationLink = (props) => {
     'page-link'
   ), cssModule);
 
+  const pageContext = useContext(PaginationItemContext),
+        disabled = (pageContext && pageContext.disabled) ? 'true' : 'false';
+
   let defaultAriaLabel;
   if (previous) {
     defaultAriaLabel = 'Previous';
@@ -65,7 +69,7 @@ const PaginationLink = (props) => {
     children = null;
   }
 
-  if (!attributes.href && Tag === 'a') {
+  if ((!attributes.href || attributes.href === '#') && Tag === 'a') {
     Tag = 'button';
   }
 
@@ -91,6 +95,7 @@ const PaginationLink = (props) => {
       {...attributes}
       className={classes}
       aria-label={ariaLabel}
+      aria-disabled={disabled}
     >
       {children}
     </Tag>
