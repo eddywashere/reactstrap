@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { Row } from '../';
 
 describe('Row', () => {
@@ -45,5 +45,12 @@ describe('Row', () => {
     const wrapper = shallow(<Row sm={6} />);
 
     expect(wrapper.hasClass('row-cols-sm-6')).toBe(true);
+  });
+
+  it('should reference innerRef to the row node', () => {
+    const ref = React.createRef();
+    mount(<Row innerRef={ref} />);
+    expect(ref.current).not.toBeNull();
+    expect(ref.current).toBeInstanceOf(HTMLElement);
   });
 });

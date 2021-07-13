@@ -16,7 +16,12 @@ const propTypes = {
   sm: rowColsPropType,
   md: rowColsPropType,
   lg: rowColsPropType,
-  xl: rowColsPropType
+  xl: rowColsPropType,
+  innerRef: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+    PropTypes.func,
+  ])
 };
 
 const defaultProps = {
@@ -32,6 +37,7 @@ const Row = (props) => {
     tag: Tag,
     form,
     widths,
+    innerRef,
     ...attributes
   } = props;
 
@@ -58,7 +64,7 @@ const Row = (props) => {
   ), cssModule);
 
   return (
-    <Tag {...attributes} className={classes} />
+    <Tag {...attributes} className={classes} ref={innerRef}/>
   );
 };
 

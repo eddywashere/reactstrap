@@ -44,7 +44,12 @@ export default class LayoutsPage extends React.Component {
   sm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   md: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   lg: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  xl: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  xl: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  innerRef: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+    PropTypes.func,
+  ])
 }`}
           </PrismCode>
         </pre>
