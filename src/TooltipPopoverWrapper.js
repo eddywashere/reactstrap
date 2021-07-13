@@ -313,7 +313,7 @@ class TooltipPopoverWrapper extends React.Component {
     if (newTarget !== this._targets) {
       this.removeTargetEvents();
       this._targets = newTarget ? Array.from(newTarget) : [];
-      this.currentTargetElement = this.currentTargetElement || this._targets[0];
+      this.currentTargetElement = this._targets[0] || this.currentTargetElement;
       this.addTargetEvents();
     }
   }
